@@ -119,8 +119,11 @@
   .card::before { content:""; position:absolute; inset:0 0 auto 0; height:3px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); opacity:0; transition:.2s; }
   .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); background: var(--card-hover); }
   .card:hover::before { opacity: 1; }
-  .thumb { display: block; height: 158px; border-radius: 11px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-soft); text-decoration: none; }
+  .thumb { display: block; position: relative; height: 158px; border-radius: 11px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-soft); text-decoration: none; }
   a.thumb:hover { border-color: var(--accent); }
+  .thumb-badge { position: absolute; top: 8px; left: 8px; z-index: 2; font-size: .66rem; font-weight: 600;
+    letter-spacing: .03em; padding: 4px 9px; border-radius: 999px; color: #fff;
+    background: rgba(15,20,35,.72); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.15); }
   .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .35s ease; }
   .card:hover .thumb img { transform: scale(1.04); }
   .thumb-icon { display: flex; align-items: center; justify-content: center; font-size: 3.3rem;
@@ -325,7 +328,8 @@ const PROJECTS = [
     desc: "Client project: a liquidity-management dashboard that imports SAP exports, plans payments by due date and early-payment discount, and runs a multi-role approval workflow with login.",
     tech: ["Python", "Streamlit", "Pandas"],
     status: "private",
-    icon: "📊"
+    img: "assets/payment-planning.png",
+    imgBadge: "Anonymized preview"
   },
   {
     title: "Personal Finance Dashboard",
@@ -378,8 +382,11 @@ function render() {
       const foot = p.link
         ? `<a href="${p.link.href}" target="_blank" rel="noopener">${p.link.label} ${extLink}</a>`
         : `<span class="muted">${p.status === 'dev' ? 'In development' : 'Private / client work'}</span>`;
+      const badge = p.imgBadge ? `<span class="thumb-badge">${p.imgBadge}</span>` : '';
       const thumb = p.img
-        ? `<a class="thumb" href="${p.link ? p.link.href : '#'}"${p.link ? ' target="_blank" rel="noopener"' : ''}><img src="${p.img}" loading="lazy" alt="${p.title} screenshot"></a>`
+        ? (p.link
+            ? `<a class="thumb" href="${p.link.href}" target="_blank" rel="noopener">${badge}<img src="${p.img}" loading="lazy" alt="${p.title} screenshot"></a>`
+            : `<div class="thumb">${badge}<img src="${p.img}" loading="lazy" alt="${p.title} preview"></div>`)
         : `<div class="thumb thumb-icon">${p.icon || '🧩'}</div>`;
       return `
       <article class="card">
