@@ -34,7 +34,7 @@
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    margin: 0; background: var(--bg); color: var(--text);
+    margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.55; -webkit-font-smoothing: antialiased;
     background-image:
@@ -110,7 +110,7 @@
   .chip:hover { color: var(--text); border-color: var(--accent); }
   .chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 18px; }
   .card {
     background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
     padding: 22px; display: flex; flex-direction: column; gap: 13px;
@@ -146,9 +146,17 @@
   .svg-ic { width: 15px; height: 15px; flex: none; }
 
   @media (max-width: 760px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .stat { padding: 15px 16px; }
+    .stat .num { font-size: 1.6rem; }
     .hero { padding: 44px 0 20px; }
     .top-actions .hide-sm { display: none; }
+    .cta-row .btn { flex: 1 1 auto; justify-content: center; }
+  }
+  @media (max-width: 400px) {
+    .hero h1 br { display: none; }
+    .foot-links { width: 100%; }
+    .foot-links .btn { flex: 1 1 auto; justify-content: center; }
   }
 </style>
 </head>
