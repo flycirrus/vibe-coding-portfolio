@@ -17,13 +17,28 @@ Each entry:
   desc: "One or two sentences.",
   tech: ["Next.js", "Prisma"],
   status: "live",               // live | public | private | dev
-  link: { href: "https://…", label: "Live demo" }  // optional
+  img: "assets/app.png",        // screenshot thumbnail (optional)
+  icon: "🛫",                   // fallback emoji icon if no screenshot
+  link: { href: "https://…", label: "Open app" }  // optional
 }
 ```
 
 - Add a project → add an object to the array.
 - New `category` → a new filter chip appears on its own.
+- `img` → card shows that screenshot (put the file in `assets/`); else `icon` emoji on a gradient.
 - No `link` → the card shows a "Private / client work" badge instead.
+
+### Refreshing screenshots
+
+Thumbnails in `assets/` are headless-Chrome captures of the live apps
+(1280×800, resized to 760px wide). Re-capture any app with:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new --window-size=1280,800 --virtual-time-budget=9000 \
+  --screenshot=assets/NAME.png "https://NAME.vercel.app"
+sips --resampleWidth 760 assets/NAME.png
+```
 
 ## Stack
 
