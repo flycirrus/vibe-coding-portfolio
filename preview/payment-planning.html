@@ -116,6 +116,24 @@
   .gate .ok{color:var(--green);font-weight:600}
 
   footer{padding:40px 0 60px;color:var(--faint);font-size:.82rem;text-align:center}
+  /* supplementary screen styles */
+  .filters2{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+  .pill{font-size:.78rem;border:1px solid var(--a-line);border-radius:8px;padding:6px 11px;background:#fff;color:var(--a-ink)}
+  .pill.sel{background:#eef3fc;border-color:#cdddf7;color:var(--brand);font-weight:600}
+  .age{font-size:.68rem;font-weight:600;padding:2px 8px;border-radius:999px}
+  .age.a1{background:#e7f6ec;color:var(--green)}.age.a2{background:#fef3e2;color:var(--amber)}.age.a3{background:#fde8e8;color:#dc2626}
+  .gauge{height:13px;border-radius:7px;background:var(--a-line);overflow:hidden;margin:9px 0 6px}
+  .gauge .g{height:100%;background:linear-gradient(90deg,#2563eb,#0ea5a3)}
+  .up-card{border:1.5px dashed #c3cee0;border-radius:12px;padding:20px;text-align:center;color:var(--a-dim);background:#fafcff}
+  .up-card .big{font-size:1.4rem}
+  .file-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fc;border:1px solid #d8e3f7;border-radius:8px;padding:7px 12px;font-size:.82rem;color:var(--a-ink);margin-top:12px}
+  .map{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:4px}
+  .map td{padding:7px 6px;border-bottom:1px solid var(--a-line)}
+  .ok2{color:var(--green);font-weight:600}
+  .valrow{display:flex;gap:10px;margin-top:13px;flex-wrap:wrap}
+  .valbox{flex:1;min-width:118px;background:#fff;border:1px solid var(--a-line);border-radius:10px;padding:11px 13px}
+  .valbox .vn{font-size:1.2rem;font-weight:700;font-family:'Space Grotesk'}
+  .valbox .vl{font-size:.7rem;color:var(--a-dim);text-transform:uppercase;letter-spacing:.04em}
   @media(max-width:820px){
     .pipe{grid-template-columns:1fr 1fr}
     .step:not(:last-child)::after{display:none}
@@ -284,7 +302,162 @@
   </div>
 </section>
 
-<footer>
+<!-- 4 · UI SCREEN C -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">04 · User interface</div>
+    <h2>Screen C — Payables &amp; aging</h2>
+    <p class="lead">All open items in one place, filterable by entity and status, with aging buckets so overdue
+       exposure is obvious at a glance.</p>
+
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">liquidplan · payables</span></div>
+      <div class="screen-body">
+        <div class="app">
+          <aside class="side">
+            <div class="logo"><span class="m">₿</span> LiquidPlan</div>
+            <nav class="nav">
+              <a>▣ Overview</a><a class="on">▤ Payables</a><a>◷ Due &amp; discounts</a><a>✔ Approvals</a><a>⇅ Import</a><a>⚙ Settings</a>
+            </nav>
+            <div class="role">Role<b>Management · Approver</b></div>
+          </aside>
+          <div class="m-main">
+            <div class="m-top"><div><h4>Open payables</h4>
+              <div class="sub">312 items · €4.82M total</div></div><span class="ava">RR</span></div>
+            <div class="filters2">
+              <span class="pill sel">All entities</span><span class="pill">Entity DE</span><span class="pill">Entity SK</span>
+              <span class="pill">Status: open</span><span class="pill">🔍 Search vendor…</span>
+            </div>
+            <table class="tbl">
+              <thead><tr><th>Vendor</th><th>Entity</th><th>Invoice</th><th>Posted</th><th>Due</th>
+                <th style="text-align:right">Amount</th><th>Aging</th></tr></thead>
+              <tbody>
+                <tr><td>Nordwind Logistik GmbH</td><td>DE</td><td>RE-20418</td><td>30 Sep</td><td>14 Oct</td><td class="num">€128,400</td><td><span class="age a1">0–30 d</span></td></tr>
+                <tr><td>Stahlbau Meyer AG</td><td>DE</td><td>RE-20387</td><td>24 Sep</td><td>15 Oct</td><td class="num">€86,750</td><td><span class="age a1">0–30 d</span></td></tr>
+                <tr><td>Hansa Components</td><td>SK</td><td>RE-20455</td><td>12 Sep</td><td>16 Oct</td><td class="num">€41,220</td><td><span class="age a2">31–60 d</span></td></tr>
+                <tr><td>Rheinmetall Service</td><td>DE</td><td>RE-20402</td><td>28 Sep</td><td>17 Oct</td><td class="num">€213,900</td><td><span class="age a1">0–30 d</span></td></tr>
+                <tr><td>Brenner Werkzeug KG</td><td>SK</td><td>RE-20471</td><td>05 Aug</td><td>18 Oct</td><td class="num">€9,640</td><td><span class="age a3">61–90 d</span></td></tr>
+                <tr><td>Weser Antriebstechnik</td><td>DE</td><td>RE-20299</td><td>18 Sep</td><td>19 Oct</td><td class="num">€54,310</td><td><span class="age a2">31–60 d</span></td></tr>
+              </tbody>
+            </table>
+            <div class="runbar"><span>Aging exposure · <b>0–30 d</b> €3.1M · <b>31–60 d</b> €1.2M · <b class="disc" style="color:#dc2626">61–90 d</b> €0.52M</span>
+              <span style="color:var(--a-dim);font-size:.8rem">Export ↓</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · UI SCREEN D -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">05 · User interface</div>
+    <h2>Screen D — Cash-discount optimizer</h2>
+    <p class="lead">Invoices inside their early-payment window, sorted by deadline. The planner keeps the
+       proposed run within available liquidity while capturing the most discount.</p>
+
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">liquidplan · due &amp; discounts</span></div>
+      <div class="screen-body">
+        <div class="app">
+          <aside class="side">
+            <div class="logo"><span class="m">₿</span> LiquidPlan</div>
+            <nav class="nav">
+              <a>▣ Overview</a><a>▤ Payables</a><a class="on">◷ Due &amp; discounts</a><a>✔ Approvals</a><a>⇅ Import</a><a>⚙ Settings</a>
+            </nav>
+            <div class="role">Role<b>Management · Approver</b></div>
+          </aside>
+          <div class="m-main">
+            <div class="m-top"><div><h4>Cash-discount window</h4>
+              <div class="sub">24 invoices · capture before deadline</div></div><span class="ava">RR</span></div>
+            <div class="prow">
+              <div class="pcard" style="grid-column:span 1">
+                <table class="tbl" style="margin-top:0">
+                  <thead><tr><th>Vendor</th><th>Deadline</th><th style="text-align:right">Amount</th><th style="text-align:right">Save</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td>Stahlbau Meyer AG</td><td><span class="age a3">2 days</span></td><td class="num">€86,750</td><td class="num disc">€2,602</td><td><span class="cbx on"></span></td></tr>
+                    <tr><td>Rheinmetall Service</td><td><span class="age a2">4 days</span></td><td class="num">€213,900</td><td class="num disc">€4,278</td><td><span class="cbx on"></span></td></tr>
+                    <tr><td>Nordwind Logistik</td><td><span class="age a2">5 days</span></td><td class="num">€128,400</td><td class="num disc">€2,568</td><td><span class="cbx on"></span></td></tr>
+                    <tr><td>Weser Antriebstechnik</td><td><span class="age a1">8 days</span></td><td class="num">€54,310</td><td class="num disc">€1,086</td><td><span class="cbx"></span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pcard">
+                <h5>Proposed run vs. liquidity</h5><div class="cap">Stays within available cash</div>
+                <div class="gauge"><span class="g" style="width:16%"></span></div>
+                <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--a-dim)">
+                  <span>Run <b style="color:var(--a-ink)">€0.43M</b></span><span>Available <b style="color:var(--a-ink)">€2.67M</b></span></div>
+                <div class="valrow">
+                  <div class="valbox"><div class="vl">Discount captured</div><div class="vn disc">€9,448</div></div>
+                  <div class="valbox"><div class="vl">Deadlines ≤ 3 d</div><div class="vn">7</div></div>
+                </div>
+                <button class="btn-rel" style="width:100%;margin-top:13px">Add to payment run →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · UI SCREEN E -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">06 · User interface</div>
+    <h2>Screen E — SAP import &amp; validation</h2>
+    <p class="lead">Drop the SAP open-item export; columns are auto-mapped and every row is validated before it
+       reaches the planner — no manual cleanup.</p>
+
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">liquidplan · import</span></div>
+      <div class="screen-body">
+        <div class="app">
+          <aside class="side">
+            <div class="logo"><span class="m">₿</span> LiquidPlan</div>
+            <nav class="nav">
+              <a>▣ Overview</a><a>▤ Payables</a><a>◷ Due &amp; discounts</a><a>✔ Approvals</a><a class="on">⇅ Import</a><a>⚙ Settings</a>
+            </nav>
+            <div class="role">Role<b>Management · Approver</b></div>
+          </aside>
+          <div class="m-main">
+            <div class="m-top"><div><h4>SAP open-item import</h4>
+              <div class="sub">Step 1 of the pipeline</div></div><span class="ava">RR</span></div>
+            <div class="prow">
+              <div class="pcard">
+                <h5>Upload</h5><div class="cap">Excel export from SAP (FBL1N / FBL5N)</div>
+                <div class="up-card"><div class="big">⇪</div>Drop .xlsx here or browse</div>
+                <div class="file-chip">📄 open_items_2026-W42.xlsx · 312 rows · 1.2 MB <span class="ok2">✓</span></div>
+              </div>
+              <div class="pcard">
+                <h5>Column mapping</h5><div class="cap">Auto-detected · editable</div>
+                <table class="map">
+                  <tr><td>Lieferant</td><td>→ Vendor</td><td class="ok2">✓</td></tr>
+                  <tr><td>Belegnr.</td><td>→ Invoice no.</td><td class="ok2">✓</td></tr>
+                  <tr><td>Nettofälligkeit</td><td>→ Due date</td><td class="ok2">✓</td></tr>
+                  <tr><td>Betrag in HW</td><td>→ Amount</td><td class="ok2">✓</td></tr>
+                  <tr><td>Skontofähig</td><td>→ Discount terms</td><td class="ok2">✓</td></tr>
+                </table>
+              </div>
+            </div>
+            <div class="valrow">
+              <div class="valbox"><div class="vl">Rows parsed</div><div class="vn">312</div></div>
+              <div class="valbox"><div class="vl">Errors</div><div class="vn" style="color:var(--green)">0</div></div>
+              <div class="valbox"><div class="vl">Warnings</div><div class="vn" style="color:var(--amber)">4</div></div>
+              <div class="valbox"><div class="vl">Ready to plan</div><div class="vn disc">308</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer
   <div class="wrap">Anonymized case preview · part of Renaldo Recchiuti's vibe-coding portfolio · <a href="../index.html">back to overview</a></div>
 </footer>
 </body>

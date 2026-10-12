@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Renaldo Recchiuti — Vibe Coding Portfolio</title>
-<meta name="description" content="Airline pilot who ships real software. AI-assisted 'vibe coding' for aviation, operations, training and business. A catalog of shipped web apps." />
+<meta name="description" content="Real software shipped with AI-assisted 'vibe coding' — for aviation, operations, training and business. A catalog of shipped web apps." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet" />
@@ -189,11 +189,11 @@
 
 <main>
   <section class="hero wrap">
-    <span class="eyebrow">✈ Airline pilot × software builder</span>
+    <span class="eyebrow">✦ Vibe coding · shipped software</span>
     <h1>I ship real software with<br><span class="grad">AI-assisted vibe coding.</span></h1>
     <p class="lead">
-      I'm Renaldo — an airline pilot who turns everyday operational problems into working apps.
-      Over the last year I've built and shipped a catalog of web apps across aviation, pilot training,
+      I'm Renaldo — I turn everyday operational problems into working apps.
+      Over the last year I've built and shipped a catalog of web apps across aviation, training,
       operations and business — most of them live, from idea to deploy, with AI in the loop.
     </p>
     <div class="cta-row">
@@ -261,6 +261,52 @@ const PROJECTS = [
     link: { href: "https://emptylegportal.com", label: "Open app" }
   },
   {
+    title: "Payment Planning & Liquidity Dashboard",
+    category: "Data & Business",
+    desc: "Client project: a liquidity-management dashboard that imports SAP exports, plans payments by due date and early-payment discount, and runs a multi-role approval workflow with login.",
+    tech: ["Python", "Streamlit", "Pandas"],
+    status: "private",
+    img: "assets/payment-planning.png",
+    imgBadge: "Anonymized preview",
+    link: { href: "preview/payment-planning.html", label: "Open case preview" }
+  },
+  {
+    title: "A300-600 CBT Prep",
+    category: "Pilot Training",
+    desc: "Mobile study app for the A300-600 computer-based-training question bank, with per-question and per-chapter progress tracking and a weak-spot drill mode.",
+    tech: ["HTML/CSS/JS", "No dependencies"],
+    status: "live",
+    img: "assets/cbt-prep.png",
+    link: { href: "https://a300-cbt-prep.vercel.app", label: "Open app" }
+  },
+  {
+    title: "A300-600 Flow Trainer",
+    category: "Pilot Training",
+    desc: "Interactive procedure trainer: click the cockpit poster in the correct order and get instant yes/no feedback. Includes memory-item drills for red-alert recall.",
+    tech: ["HTML/CSS/JS", "Static site"],
+    status: "live",
+    img: "assets/flow-trainer.png",
+    link: { href: "https://a300-flow-trainer.vercel.app", label: "Open app" }
+  },
+  {
+    title: "FuelBeer — Fuel Companion",
+    category: "Aviation & Ops",
+    desc: "A pilot's fuel companion: fuel figures, a calculator and schedule helpers packaged into a clean mobile web app.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind"],
+    status: "live",
+    img: "assets/fuelbeer.png",
+    link: { href: "https://fuelbeer.vercel.app", label: "Open app" }
+  },
+  {
+    title: "FRA ⇄ LEJ Cockpit",
+    category: "Aviation & Ops",
+    desc: "Installable mobile PWA that compares three door-to-door commute options (rail, standby flight, cargo jumpseat) in real time, with a 'get home fast' emergency mode.",
+    tech: ["PWA", "HTML/CSS/JS", "Service Worker"],
+    status: "live",
+    img: "assets/cockpit.png",
+    link: { href: "https://fra-lej-cockpit.vercel.app", label: "Open app" }
+  },
+  {
     title: "Flyxpert Live Feed",
     category: "Aviation & Ops",
     desc: "Standalone serverless API that pulls empty legs live from the ops system, computes charter pricing and serves a JSON feed embedded on a public partner website.",
@@ -278,42 +324,6 @@ const PROJECTS = [
     icon: "🔄"
   },
   {
-    title: "FRA ⇄ LEJ Cockpit",
-    category: "Aviation & Ops",
-    desc: "Installable mobile PWA that compares three door-to-door commute options (rail, standby flight, cargo jumpseat) in real time, with a 'get home fast' emergency mode.",
-    tech: ["PWA", "HTML/CSS/JS", "Service Worker"],
-    status: "live",
-    img: "assets/cockpit.png",
-    link: { href: "https://fra-lej-cockpit.vercel.app", label: "Open app" }
-  },
-  {
-    title: "FuelBeer — Fuel Companion",
-    category: "Aviation & Ops",
-    desc: "A pilot's fuel companion: fuel figures, a calculator and schedule helpers packaged into a clean mobile web app.",
-    tech: ["Next.js", "React", "TypeScript", "Tailwind"],
-    status: "live",
-    img: "assets/fuelbeer.png",
-    link: { href: "https://fuelbeer.vercel.app", label: "Open app" }
-  },
-  {
-    title: "A300-600 Flow Trainer",
-    category: "Pilot Training",
-    desc: "Interactive procedure trainer: click the cockpit poster in the correct order and get instant yes/no feedback. Includes memory-item drills for red-alert recall.",
-    tech: ["HTML/CSS/JS", "Static site"],
-    status: "live",
-    img: "assets/flow-trainer.png",
-    link: { href: "https://a300-flow-trainer.vercel.app", label: "Open app" }
-  },
-  {
-    title: "A300-600 CBT Prep",
-    category: "Pilot Training",
-    desc: "Mobile study app for the A300-600 computer-based-training question bank, with per-question and per-chapter progress tracking and a weak-spot drill mode.",
-    tech: ["HTML/CSS/JS", "No dependencies"],
-    status: "live",
-    img: "assets/cbt-prep.png",
-    link: { href: "https://a300-cbt-prep.vercel.app", label: "Open app" }
-  },
-  {
     title: "A300-600 Memory Items",
     category: "Pilot Training",
     desc: "Offline-ready flashcard trainer for the aircraft's memory items — a single self-contained page that flips, shuffles and works anywhere, phone included.",
@@ -321,16 +331,6 @@ const PROJECTS = [
     status: "live",
     img: "assets/memory-items.png",
     link: { href: "https://a300-memory-items.vercel.app", label: "Open app" }
-  },
-  {
-    title: "Payment Planning & Liquidity Dashboard",
-    category: "Data & Business",
-    desc: "Client project: a liquidity-management dashboard that imports SAP exports, plans payments by due date and early-payment discount, and runs a multi-role approval workflow with login.",
-    tech: ["Python", "Streamlit", "Pandas"],
-    status: "private",
-    img: "assets/payment-planning.png",
-    imgBadge: "Anonymized preview",
-    link: { href: "preview/payment-planning.html", label: "Open case preview" }
   },
   {
     title: "Personal Finance Dashboard",
