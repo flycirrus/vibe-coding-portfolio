@@ -147,15 +147,16 @@
   .apill.hi { color: var(--accent); background: var(--accent-soft);
     border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
 
-  .card-foot { display: flex; align-items: center; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
-  .card-foot .btn-app { flex: 1 1 auto; justify-content: center; text-decoration: none;
+  .card-foot { display: flex; flex-direction: column; align-items: stretch; gap: 11px; margin-top: 6px; }
+  .card-foot .btn-app { width: 100%; flex: none; justify-content: center; text-decoration: none;
     background: linear-gradient(100deg, var(--accent), #3b8ae6); color: #fff; border: 1px solid transparent;
     border-radius: 11px; padding: 11px 16px; font-weight: 600; font-size: .92rem;
     display: inline-flex; align-items: center; gap: 8px; transition: .18s; }
   .card-foot .btn-app:hover { text-decoration: none; transform: translateY(-1px); box-shadow: 0 10px 24px -14px var(--accent); }
   .card-foot .btn-app.alt { background: var(--card); color: var(--text); border-color: var(--border); box-shadow: none; }
   .card-foot .btn-app.alt:hover { border-color: var(--accent); background: var(--card-hover); }
-  .card-foot .more { font-size: .84rem; font-weight: 600; color: var(--text-dim); text-decoration: none; white-space: nowrap; }
+  .card-foot .more { align-self: center; font-size: .84rem; font-weight: 600; color: var(--text-dim);
+    text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; }
   .card-foot .more:hover { color: var(--accent); }
   .card-foot .muted { font-size: .82rem; color: var(--text-faint); font-weight: 500; }
 
