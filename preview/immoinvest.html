@@ -37,9 +37,9 @@
   section h2{font-size:1.4rem;margin:6px 0 4px}
   section > .wrap > p.lead{color:var(--dim);margin-bottom:22px;max-width:720px}
 
-  /* example data — shown readably (representative placeholder values, not the real portfolio) */
-  .blur{}
-  .blur.s{}
+  /* a bit grayed out — sensitive figures & locations dimmed (representative example values) */
+  .blur{filter:blur(3px);opacity:.58;user-select:none;-webkit-user-select:none;cursor:default}
+  .blur.s{filter:blur(2.6px);opacity:.6}
 
   /* core pipeline */
   .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -192,17 +192,17 @@
             <div class="track"><div class="fill"></div></div>
             <div class="ticks"><span>Start</span><span class="blur s">84 %</span><span>€ 1 Mio</span></div>
             <div style="margin-top:13px;font-size:.84rem;color:var(--dim)">Hochrechnung &amp; Verkaufsszenario mit
-              <span>€ 158.000</span> Restweg bis zum Ziel — Beispielwerte.</div>
+              <span class="blur s">€ 158.000</span> Restweg bis zum Ziel — Beispielwerte.</div>
           </div>
           <div class="dcard">
             <h4>Objekte</h4><div class="cap">Cashflow je Objekt</div>
-            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 1 · Taunus-Region · 3-Zi.</span></span>
-              <span class="r"><span class="chip">Rendite-Star</span><span class="amt pos">+ € 320</span></span></div>
-            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 2 · Taunus-Region · 2-Zi.</span></span>
-              <span class="r"><span class="chip">Aufbauer</span><span class="amt neg">− € 240</span></span></div>
-            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 3 · Frankfurt · 2-Zi.</span></span>
-              <span class="r"><span class="chip">Stabil</span><span class="amt pos">+ € 95</span></span></div>
-            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 4 · Hochtaunus · 3-Zi.</span></span>
+            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 1 · <span class="blur s">Taunus-Region</span> · 3-Zi.</span></span>
+              <span class="r"><span class="chip">Rendite-Star</span><span class="amt pos blur s">+ € 320</span></span></div>
+            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 2 · <span class="blur s">Taunus-Region</span> · 2-Zi.</span></span>
+              <span class="r"><span class="chip">Aufbauer</span><span class="amt neg blur s">− € 240</span></span></div>
+            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 3 · <span class="blur s">Frankfurt</span> · 2-Zi.</span></span>
+              <span class="r"><span class="chip">Stabil</span><span class="amt pos blur s">+ € 95</span></span></div>
+            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 4 · <span class="blur s">Hochtaunus</span> · 3-Zi.</span></span>
               <span class="r"><span class="chip">Neu</span><span class="amt">in Prüfung</span></span></div>
           </div>
         </div>
@@ -224,7 +224,7 @@
         <span class="url">immonavigator · objekt / bewertung</span></div>
       <div class="screen-body">
         <div class="d-top">
-          <div class="d-brand"><span class="m">🏢</span><div><span>OBJ-1 — Objekt 1 · Taunus-Region</span><small>Bewertung &amp; Rendite</small></div></div>
+          <div class="d-brand"><span class="m">🏢</span><div><span>OBJ-1 — Objekt 1 · <span class="blur s">Taunus-Region</span></span><small>Bewertung &amp; Rendite</small></div></div>
           <span class="chip" style="font-size:.7rem;padding:4px 11px">⭐ Rendite-Star</span>
         </div>
         <div class="valgrid">
@@ -239,7 +239,7 @@
           <h4>Sofias Empfehlung</h4>
           <div style="font-size:.86rem;color:var(--dim);margin-top:6px">
             Starker Rendite-Beitrag; Wertzuwachs über Plan. Halten und Tilgung
-            <span>um € 150/Monat</span> erhöhen beschleunigt den Weg zur Million. <span style="color:var(--faint)">(Beispiel-Empfehlung)</span>
+            <span class="blur s">um € 150/Monat</span> erhöhen beschleunigt den Weg zur Million. <span style="color:var(--faint)">(Beispiel-Empfehlung)</span>
           </div>
         </div>
       </div>
@@ -267,10 +267,10 @@
           <thead><tr><th>Objekt</th><th>Bank</th><th>Zinssatz</th><th>Zinsbindung</th>
             <th style="text-align:right">Restschuld</th><th style="text-align:right">Rate / Monat</th></tr></thead>
           <tbody>
-            <tr><td>OBJ-1 · Taunus</td><td>Hausbank A</td><td><span class="rate lo">1,4 %</span></td><td>bis 2031</td><td class="num">€ 227.000</td><td class="num">€ 690</td></tr>
-            <tr><td>OBJ-2 · Taunus</td><td>Bank B</td><td><span class="rate mid">2,9 %</span></td><td>bis 2028</td><td class="num">€ 198.000</td><td class="num">€ 740</td></tr>
-            <tr><td>OBJ-3 · Frankfurt</td><td>Bank C</td><td><span class="rate hi">3,8 %</span></td><td>bis 2026</td><td class="num">€ 164.000</td><td class="num">€ 810</td></tr>
-            <tr><td>OBJ-4 · Hochtaunus</td><td>Bank A</td><td><span class="rate lo">1,8 %</span></td><td>bis 2034</td><td class="num">€ 141.000</td><td class="num">€ 470</td></tr>
+            <tr><td>OBJ-1 · <span class="blur s">Taunus</span></td><td>Hausbank A</td><td><span class="rate lo blur s">1,4 %</span></td><td>bis 2031</td><td class="num blur s">€ 227.000</td><td class="num blur s">€ 690</td></tr>
+            <tr><td>OBJ-2 · <span class="blur s">Taunus</span></td><td>Bank B</td><td><span class="rate mid blur s">2,9 %</span></td><td>bis 2028</td><td class="num blur s">€ 198.000</td><td class="num blur s">€ 740</td></tr>
+            <tr><td>OBJ-3 · <span class="blur s">Frankfurt</span></td><td>Bank C</td><td><span class="rate hi blur s">3,8 %</span></td><td>bis 2026</td><td class="num blur s">€ 164.000</td><td class="num blur s">€ 810</td></tr>
+            <tr><td>OBJ-4 · <span class="blur s">Hochtaunus</span></td><td>Bank A</td><td><span class="rate lo blur s">1,8 %</span></td><td>bis 2034</td><td class="num blur s">€ 141.000</td><td class="num blur s">€ 470</td></tr>
           </tbody>
         </table>
         <div style="margin-top:12px;display:flex;gap:11px;flex-wrap:wrap">
