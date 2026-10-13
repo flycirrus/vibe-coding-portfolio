@@ -292,16 +292,6 @@ const PROJECTS = [
     previewLink: "preview/payment-planning.html"
   },
   {
-    title: "A300-600 CBT Prep",
-    category: "Pilot Training",
-    desc: "Mobile study app for the A300-600 computer-based-training question bank, with per-question and per-chapter progress tracking and a weak-spot drill mode.",
-    arch: ["⚡ Static web app · local-storage progress", "🚀 GitHub → Vercel"],
-    tech: ["HTML/CSS/JS", "No dependencies"],
-    status: "live",
-    img: "assets/cbt-prep.png",
-    appLink: "https://a300-cbt-prep.vercel.app"
-  },
-  {
     title: "A300-600 Flow Trainer",
     category: "Pilot Training",
     desc: "Interactive procedure trainer: click the cockpit poster in the correct order and get instant yes/no feedback. Includes memory-item drills for red-alert recall.",
@@ -311,6 +301,16 @@ const PROJECTS = [
     img: "assets/flow-trainer.jpg",
     appLink: "https://a300-flow-trainer.vercel.app",
     previewLink: "preview/flow-trainer.html"
+  },
+  {
+    title: "A300-600 Memory Items",
+    category: "Pilot Training",
+    desc: "Offline-ready flashcard trainer for the aircraft's memory items — a single self-contained page that flips, shuffles and works anywhere, phone included.",
+    arch: ["⚡ Single-file HTML · fully offline", "🚀 GitHub → Vercel"],
+    tech: ["Single-file HTML", "Offline"],
+    status: "live",
+    img: "assets/memory-items.jpg",
+    appLink: "https://a300-memory-items.vercel.app"
   },
   {
     title: "FuelBeer — Fuel Companion",
@@ -324,14 +324,14 @@ const PROJECTS = [
     previewLink: "preview/fuelbeer.html"
   },
   {
-    title: "A300-600 Memory Items",
+    title: "A300-600 CBT Prep",
     category: "Pilot Training",
-    desc: "Offline-ready flashcard trainer for the aircraft's memory items — a single self-contained page that flips, shuffles and works anywhere, phone included.",
-    arch: ["⚡ Single-file HTML · fully offline", "🚀 GitHub → Vercel"],
-    tech: ["Single-file HTML", "Offline"],
+    desc: "Mobile study app for the A300-600 computer-based-training question bank, with per-question and per-chapter progress tracking and a weak-spot drill mode.",
+    arch: ["⚡ Static web app · local-storage progress", "🚀 GitHub → Vercel"],
+    tech: ["HTML/CSS/JS", "No dependencies"],
     status: "live",
-    img: "assets/memory-items.jpg",
-    appLink: "https://a300-memory-items.vercel.app"
+    img: "assets/cbt-prep.png",
+    appLink: "https://a300-cbt-prep.vercel.app"
   },
   {
     title: "FRA ⇄ LEJ Cockpit",
@@ -387,8 +387,19 @@ const PROJECTS = [
     arch: ["🗄 Full-stack · Node/Express API + DB", "📊 React + Vite front end"],
     tech: ["React", "Vite", "Express", "Node"],
     status: "private",
-    icon: "🍽️",
+    img: "assets/meal-planner.jpg",
+    imgBadge: "UI preview",
     previewLink: "preview/meal-planner.html"
+  },
+  {
+    title: "ImmoNavigator — Investment Dashboard",
+    category: "Data & Business",
+    desc: "Real-estate investment dashboard: portfolio overview, per-property valuation and rendite, financing and a 'path to a million' strategy simulator. Personal project — every figure shown is anonymized.",
+    arch: ["🏠 Real-estate investment dashboard", "🔒 Personal · figures anonymized"],
+    tech: ["HTML/CSS/JS", "Dashboard", "Scenario sim"],
+    status: "private",
+    img: "assets/immoinvest.jpg",
+    imgBadge: "Anonymized preview"
   }
 ];
 
