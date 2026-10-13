@@ -464,6 +464,19 @@ filtersEl.addEventListener('click', e => {
 });
 render();
 
+/* Click analytics — track which project gets opened (app) or expanded (details).
+   Uses Vercel Web Analytics custom events (anonymous, no IPs). No-op until Analytics is enabled. */
+grid.addEventListener('click', e => {
+  const el = e.target.closest('.btn-app, .more, a.thumb');
+  if (!el) return;
+  const card = el.closest('.card');
+  const project = card ? (card.querySelector('h3')?.textContent || '').trim() : '';
+  const isDetails = el.classList.contains('more') || el.classList.contains('alt')
+    || (el.classList.contains('thumb') && !el.getAttribute('href')?.startsWith('http'));
+  const action = isDetails ? 'view_details' : 'open_app';
+  try { window.va && window.va('event', { name: action, project }); } catch (err) {}
+});
+
 /* Theme toggle (remembers choice per browser) */
 const root = document.documentElement;
 const tIcon = document.getElementById('themeIcon');
@@ -481,5 +494,9 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   try { localStorage.setItem('theme', next); } catch (e) {}
 });
 </script>
+
+<!-- Vercel Web Analytics (anonymous page views + custom click events). Enable "Analytics" in the Vercel project. -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
