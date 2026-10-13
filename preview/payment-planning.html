@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Payment Planning & Liquidity — Case Preview</title>
-<meta name="description" content="Anonymized preview of a liquidity & payment-planning platform: core matching logic and user interface." />
+<meta name="description" content="Real, anonymized screenshots of a liquidity & payment-planning platform: SAP open-item import, creditor→debitor matching, traffic-light payment workflow and automated core logic." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -12,8 +12,6 @@
   :root{
     --bg:#0b1020; --panel:#141d36; --border:#243156; --text:#e8edf9; --dim:#9fb0d0; --faint:#6b7ca3;
     --accent:#4ea3ff; --accent2:#7cf2d0; --soft:rgba(78,163,255,.14);
-    /* light "app" tokens for the mock screens */
-    --a-bg:#f3f6fb; --a-panel:#fff; --a-ink:#17233d; --a-dim:#6b7a9c; --a-line:#e6ecf6;
     --brand:#2563eb; --brand2:#0ea5a3; --green:#16a34a; --amber:#d97706;
   }
   *{box-sizing:border-box;margin:0}
@@ -30,7 +28,7 @@
     text-transform:uppercase;color:var(--accent2);background:var(--soft);border:1px solid var(--border);
     padding:5px 11px;border-radius:999px}
   header.hd h1{font-size:clamp(1.7rem,4vw,2.3rem);margin:16px 0 10px}
-  header.hd p{color:var(--dim);max-width:680px}
+  header.hd p{color:var(--dim);max-width:720px}
   .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
   .tag{font-size:.74rem;color:var(--faint);border:1px solid var(--border);padding:4px 10px;border-radius:7px;background:var(--panel)}
   .note{margin-top:16px;font-size:.82rem;color:var(--faint);border-left:2px solid var(--accent);padding:4px 0 4px 12px}
@@ -38,7 +36,7 @@
   section{padding:34px 0 6px}
   .sec-label{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2)}
   section h2{font-size:1.4rem;margin:6px 0 4px}
-  section > .wrap > p.lead{color:var(--dim);margin-bottom:22px;max-width:720px}
+  section > .wrap > p.lead{color:var(--dim);margin-bottom:22px;max-width:760px}
 
   /* ---- core pipeline diagram ---- */
   .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -55,94 +53,23 @@
   .io .box ul{margin:0;padding-left:16px;font-size:.86rem;color:var(--dim)}
   .io .box li{margin:3px 0}
 
-  /* ---- device frame for app screens ---- */
+  /* ---- browser frame for real screenshots ---- */
   .screen{margin-top:8px;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 60px -30px #000}
   .bar{display:flex;align-items:center;gap:7px;padding:9px 13px;background:#0e1628;border-bottom:1px solid var(--border)}
   .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
   .dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
   .bar .url{margin-left:10px;font-size:.74rem;color:var(--faint);background:#0b1220;border:1px solid var(--border);
     padding:3px 12px;border-radius:7px}
-  .screen-body{background:var(--a-bg)}
+  .shot{display:block;width:100%;height:auto}
 
-  /* app mock (light) */
-  .app{display:flex;color:var(--a-ink);font-size:14px;min-height:430px}
-  .app *{font-family:'Inter',system-ui,sans-serif}
-  .side{width:188px;background:#0f1b33;color:#c9d6ef;flex:none;padding:16px 0;display:flex;flex-direction:column}
-  .logo{font-weight:700;color:#fff;padding:0 16px 14px;display:flex;align-items:center;gap:8px;font-family:'Space Grotesk'}
-  .logo .m{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;font-size:.75rem}
-  .nav a{display:flex;align-items:center;gap:10px;padding:9px 16px;color:#9fb0d4;font-size:.86rem}
-  .nav a.on{background:rgba(37,99,235,.2);color:#fff;border-left:3px solid var(--brand);padding-left:13px}
-  .role{margin-top:auto;padding:12px 16px 0;font-size:.72rem;color:#8296bd}
-  .role b{color:#cdd9f2;display:block;font-size:.82rem}
-  .m-main{flex:1;padding:18px 20px}
-  .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-  .m-top h4{font-size:1.1rem;font-family:'Space Grotesk'}
-  .m-top .sub{color:var(--a-dim);font-size:.8rem}
-  .ava{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#0ea5a3);color:#fff;display:grid;place-items:center;font-weight:600;font-size:.76rem}
-  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:15px}
-  .kpi{background:var(--a-panel);border:1px solid var(--a-line);border-radius:11px;padding:12px 13px}
-  .kpi .lab{font-size:.68rem;color:var(--a-dim);text-transform:uppercase;letter-spacing:.04em}
-  .kpi .val{font-size:1.25rem;font-weight:700;margin-top:5px}
-  .kpi .d{font-size:.72rem;margin-top:3px}
-  .d.up{color:var(--green)}.d.dn{color:#dc2626}.d.nt{color:var(--a-dim)}
-  .prow{display:grid;grid-template-columns:1.3fr 1fr;gap:12px}
-  .pcard{background:var(--a-panel);border:1px solid var(--a-line);border-radius:11px;padding:13px 14px}
-  .pcard h5{font-size:.9rem;font-family:'Space Grotesk';margin-bottom:2px}
-  .pcard .cap{font-size:.72rem;color:var(--a-dim);margin-bottom:11px}
-  .chart{display:flex;align-items:flex-end;gap:9px;height:118px}
-  .chart .bar2{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;justify-content:flex-end}
-  .chart .bar2 .b{width:60%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#60a5fa,#2563eb)}
-  .chart .bar2.low .b{background:linear-gradient(180deg,#fca5a5,#dc2626)}
-  .chart .bar2 small{font-size:.62rem;color:var(--a-dim)}
-  .slist{display:flex;flex-direction:column;gap:9px}
-  .srow{display:flex;align-items:center;gap:9px;font-size:.8rem}
-  .srow .t{width:62px}.srow .track{flex:1;height:7px;border-radius:5px;background:var(--a-line);overflow:hidden}
-  .srow .fill{height:100%}.srow .n{color:var(--a-dim);width:30px;text-align:right}
-  table.tbl{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:13px}
-  .tbl th{text-align:left;color:var(--a-dim);font-weight:600;font-size:.68rem;text-transform:uppercase;letter-spacing:.03em;padding:8px 7px;border-bottom:1px solid var(--a-line)}
-  .tbl td{padding:9px 7px;border-bottom:1px solid var(--a-line)}
-  .tbl td.num{text-align:right;font-variant-numeric:tabular-nums}
-  .chip{font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
-  .c-prep{background:#fef3e2;color:var(--amber)}.c-appr{background:#e8f0ff;color:var(--brand)}.c-paid{background:#e7f6ec;color:var(--green)}
-  .disc{color:var(--green);font-weight:600}
-  .co{filter:blur(3.4px);user-select:none;-webkit-user-select:none;cursor:default}
-  .cbx{width:15px;height:15px;border-radius:4px;border:1.5px solid #c3cee0;display:inline-block;vertical-align:-2px}
-  .cbx.on{background:var(--brand);border-color:var(--brand);position:relative}
-  .cbx.on::after{content:"✓";color:#fff;font-size:11px;position:absolute;top:-2px;left:2px}
-  .runbar{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding:12px 14px;
-    background:#eef3fc;border:1px solid #d8e3f7;border-radius:10px;font-size:.84rem}
-  .runbar b{font-family:'Space Grotesk'}
-  .btn-rel{background:var(--brand);color:#fff;border:none;border-radius:8px;padding:8px 15px;font-weight:600;font-size:.82rem}
-  .gate{font-size:.74rem;color:var(--a-dim);display:flex;align-items:center;gap:7px}
-  .gate .ok{color:var(--green);font-weight:600}
+  .blurnote{font-size:.76rem;color:var(--faint);margin-top:9px;display:flex;align-items:center;gap:7px}
+  .blurnote::before{content:"▦";color:var(--accent)}
 
   footer{padding:40px 0 60px;color:var(--faint);font-size:.82rem;text-align:center}
-  /* supplementary screen styles */
-  .filters2{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-  .pill{font-size:.78rem;border:1px solid var(--a-line);border-radius:8px;padding:6px 11px;background:#fff;color:var(--a-ink)}
-  .pill.sel{background:#eef3fc;border-color:#cdddf7;color:var(--brand);font-weight:600}
-  .age{font-size:.68rem;font-weight:600;padding:2px 8px;border-radius:999px}
-  .age.a1{background:#e7f6ec;color:var(--green)}.age.a2{background:#fef3e2;color:var(--amber)}.age.a3{background:#fde8e8;color:#dc2626}
-  .gauge{height:13px;border-radius:7px;background:var(--a-line);overflow:hidden;margin:9px 0 6px}
-  .gauge .g{height:100%;background:linear-gradient(90deg,#2563eb,#0ea5a3)}
-  .up-card{border:1.5px dashed #c3cee0;border-radius:12px;padding:20px;text-align:center;color:var(--a-dim);background:#fafcff}
-  .up-card .big{font-size:1.4rem}
-  .file-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fc;border:1px solid #d8e3f7;border-radius:8px;padding:7px 12px;font-size:.82rem;color:var(--a-ink);margin-top:12px}
-  .map{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:4px}
-  .map td{padding:7px 6px;border-bottom:1px solid var(--a-line)}
-  .ok2{color:var(--green);font-weight:600}
-  .valrow{display:flex;gap:10px;margin-top:13px;flex-wrap:wrap}
-  .valbox{flex:1;min-width:118px;background:#fff;border:1px solid var(--a-line);border-radius:10px;padding:11px 13px}
-  .valbox .vn{font-size:1.2rem;font-weight:700;font-family:'Space Grotesk'}
-  .valbox .vl{font-size:.7rem;color:var(--a-dim);text-transform:uppercase;letter-spacing:.04em}
   @media(max-width:820px){
     .pipe{grid-template-columns:1fr 1fr}
     .step:not(:last-child)::after{display:none}
-    .kpis{grid-template-columns:repeat(2,1fr)}
-    .prow{grid-template-columns:1fr}
-    .app{flex-direction:column}
-    .side{width:100%;flex-direction:row;flex-wrap:wrap;padding:10px}
-    .role{display:none}.nav{display:flex;flex-wrap:wrap}
+    .io{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -153,17 +80,20 @@
 
 <header class="hd">
   <div class="wrap">
-    <span class="eyebrow">Case preview · anonymized</span>
+    <span class="eyebrow">Case preview · real screenshots · anonymized</span>
     <h1>Payment Planning &amp; Liquidity Platform</h1>
-    <p>A liquidity-management tool for a multi-entity industrial group: it imports SAP open items, matches
-       payables against receivables, optimizes payments by due date and cash-discount window, and runs a
-       role-based approval workflow — 100% on-premise.</p>
+    <p>A liquidity-control tool for a multi-entity industrial group. It imports SAP open items (OPOS),
+       runs a four-step chain that links every creditor invoice through raw- and finished-part numbers to
+       the end customer, then drives a traffic-light payment-approval workflow with a revision-safe audit
+       trail. A scheduled job re-runs the core twice a day and exports Excel — 100% on-premise.</p>
     <div class="meta">
       <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span>
-      <span class="tag">SAP Excel import</span><span class="tag">Role-based access</span><span class="tag">On-premise</span>
+      <span class="tag">SAP OPOS import</span><span class="tag">SQLite</span><span class="tag">Role-based access</span>
+      <span class="tag">On-premise</span><span class="tag">Daily cron</span>
     </div>
-    <p class="note">Client project. All names, figures and vendors on this page are fictional placeholders —
-       no real customer data is shown.</p>
+    <p class="note">Real screenshots from the live tool. All creditor, end-customer and group-entity names
+       are blurred — no identifying customer data is shown. Figures shown are the client's own operational
+       KPIs with identities removed.</p>
   </div>
 </header>
 
@@ -173,288 +103,137 @@
     <div class="sec-label">01 · Core function</div>
     <h2>The matching &amp; planning engine</h2>
     <p class="lead">At the heart is a four-step pipeline that turns raw SAP exports into a ready-to-approve
-       payment proposal. The same core logic runs headless (batch) and behind the UI.</p>
+       liquidity picture. The same core logic runs behind the UI and fully headless as a daily batch job.</p>
 
     <div class="pipe">
-      <div class="step"><div class="n">1</div><h3>Import</h3><p>Read SAP open-item exports for accounts
-        payable &amp; receivable; normalize vendors, dates and amounts.</p></div>
-      <div class="step"><div class="n">2</div><h3>Match</h3><p>Four-step chain that links creditor invoices to
-        the matching debit/credit notes per business partner.</p></div>
-      <div class="step"><div class="n">3</div><h3>Optimize</h3><p>Net the balances, then rank by due date and
-        open cash-discount window to maximize savings within available liquidity.</p></div>
-      <div class="step"><div class="n">4</div><h3>Approve</h3><p>Build the payment proposal and route it through
-        Preparer → Management → Accounting, with a full audit trail.</p></div>
+      <div class="step"><div class="n">1</div><h3>Import</h3><p>Read SAP OPOS open-item exports (creditors
+        &amp; debitors) for both group entities; normalize partners, dates and amounts.</p></div>
+      <div class="step"><div class="n">2</div><h3>Match</h3><p>A four-step chain links each creditor invoice
+        through raw-part and finished-part numbers to the end customer — the core Kreditor→Debitor logic.</p></div>
+      <div class="step"><div class="n">3</div><h3>Analyze</h3><p>Compute match-quote, due-date windows and
+        overdue aging; surface exactly what stays unmatched and why.</p></div>
+      <div class="step"><div class="n">4</div><h3>Plan &amp; approve</h3><p>Traffic-light payment workflow
+        (Stop / In review / Released) with a revision-safe audit trail and automated Excel export.</p></div>
     </div>
 
     <div class="io">
       <div class="box"><div class="k">Inputs</div>
-        <ul><li>SAP open items (AP + AR), .xlsx</li><li>Vendor &amp; terms master data</li><li>Current bank balances</li></ul>
+        <ul><li>SAP OPOS open items (AP + AR), .xlsx</li><li>Raw- / finished-part master (BOM)</li><li>Both group entities</li></ul>
       </div>
       <div class="box"><div class="k">Outputs</div>
-        <ul><li>Prioritized payment proposal</li><li>Cash-discount savings report</li><li>Bank / SEPA payment file</li></ul>
+        <ul><li>Match-quote &amp; liquidity KPIs</li><li>Due &amp; overdue payment plan</li><li>Formatted Excel export (daily, automated)</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 2 · UI SCREEN A -->
+<!-- 2 · SCREEN A -->
 <section>
   <div class="wrap">
     <div class="sec-label">02 · User interface</div>
     <h2>Screen A — Overview dashboard</h2>
-    <p class="lead">Consolidated group view: liquidity position, what's due, and where the cash-discount
-       opportunities are.</p>
-
+    <p class="lead">Consolidated group view: total payables, how much is linked, the match-quote, what's due
+       per week, and the top creditors by amount and by end customer.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">liquidplan · overview</span></div>
-      <div class="screen-body">
-        <div class="app">
-          <aside class="side">
-            <div class="logo"><span class="m">₿</span> LiquidPlan</div>
-            <nav class="nav">
-              <a class="on">▣ Overview</a><a>▤ Payables</a><a>◷ Due &amp; discounts</a><a>✔ Approvals</a><a>⚙ Settings</a>
-            </nav>
-            <div class="role">Role<b>Management · Approver</b></div>
-          </aside>
-          <div class="m-main">
-            <div class="m-top"><div><h4>Liquidity &amp; Payment Planning</h4>
-              <div class="sub">Group view · consolidated · week 42 / 2026</div></div><span class="ava">RR</span></div>
-            <div class="kpis">
-              <div class="kpi"><div class="lab">Open payables</div><div class="val">€4.82M</div><div class="d nt">312 invoices</div></div>
-              <div class="kpi"><div class="lab">Due this week</div><div class="val">€1.14M</div><div class="d dn">▲ €220k</div></div>
-              <div class="kpi"><div class="lab">Available liquidity</div><div class="val">€2.67M</div><div class="d up">covers 2.3 wk</div></div>
-              <div class="kpi"><div class="lab">Discount savings</div><div class="val">€38.4k</div><div class="d up">24 in window</div></div>
-            </div>
-            <div class="prow">
-              <div class="pcard"><h5>Liquidity forecast</h5><div class="cap">Next 8 weeks · € thousand</div>
-                <div class="chart">
-                  <div class="bar2"><div class="b" style="height:72%"></div><small>W42</small></div>
-                  <div class="bar2"><div class="b" style="height:58%"></div><small>W43</small></div>
-                  <div class="bar2 low"><div class="b" style="height:34%"></div><small>W44</small></div>
-                  <div class="bar2"><div class="b" style="height:63%"></div><small>W45</small></div>
-                  <div class="bar2"><div class="b" style="height:80%"></div><small>W46</small></div>
-                  <div class="bar2"><div class="b" style="height:69%"></div><small>W47</small></div>
-                  <div class="bar2"><div class="b" style="height:88%"></div><small>W48</small></div>
-                  <div class="bar2"><div class="b" style="height:76%"></div><small>W49</small></div>
-                </div>
-              </div>
-              <div class="pcard"><h5>Approval pipeline</h5><div class="cap">This week's run</div>
-                <div class="slist">
-                  <div class="srow"><span class="t">Prepared</span><span class="track"><span class="fill" style="width:100%;background:var(--amber)"></span></span><span class="n">86</span></div>
-                  <div class="srow"><span class="t">Approved</span><span class="track"><span class="fill" style="width:64%;background:var(--brand)"></span></span><span class="n">55</span></div>
-                  <div class="srow"><span class="t">Released</span><span class="track"><span class="fill" style="width:41%;background:var(--green)"></span></span><span class="n">35</span></div>
-                  <div class="srow"><span class="t">On hold</span><span class="track"><span class="fill" style="width:12%;background:#dc2626"></span></span><span class="n">6</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <span class="url">payment-planning · dashboard</span></div>
+      <img class="shot" src="../assets/nzwl-dashboard.jpg" alt="Overview dashboard with KPIs, weekly due amounts and top-creditor analyses (names blurred)" loading="lazy" />
     </div>
+    <div class="blurnote">Creditor and end-customer names in the two analysis charts are blurred.</div>
   </div>
 </section>
 
-<!-- 3 · UI SCREEN B -->
+<!-- 3 · SCREEN B -->
 <section>
   <div class="wrap">
     <div class="sec-label">03 · User interface</div>
-    <h2>Screen B — Payment run &amp; approval</h2>
-    <p class="lead">The approver selects invoices for the run; rights are role-gated and every release is logged.
-       Cash-discount lines are highlighted so nothing expires unused.</p>
-
+    <h2>Screen B — Due dates &amp; traffic-light workflow</h2>
+    <p class="lead">Every document carries a status — Stop / In review / Released / none. Payments are grouped
+       by time window (this week, next week, later…) so nothing is paid too early or missed.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">liquidplan · approvals</span></div>
-      <div class="screen-body">
-        <div class="app">
-          <aside class="side">
-            <div class="logo"><span class="m">₿</span> LiquidPlan</div>
-            <nav class="nav">
-              <a>▣ Overview</a><a>▤ Payables</a><a>◷ Due &amp; discounts</a><a class="on">✔ Approvals</a><a>⚙ Settings</a>
-            </nav>
-            <div class="role">Role<b>Management · Approver</b></div>
-          </aside>
-          <div class="m-main">
-            <div class="m-top"><div><h4>Payment run · due within 7 days</h4>
-              <div class="sub">Select &amp; approve · week 42 / 2026</div></div><span class="ava">RR</span></div>
-            <table class="tbl">
-              <thead><tr><th style="width:26px"></th><th>Vendor</th><th>Invoice</th><th>Due</th>
-                <th style="text-align:right">Amount</th><th style="text-align:right">Discount</th><th>Status</th></tr></thead>
-              <tbody>
-                <tr><td><span class="cbx on"></span></td><td><span class="co">Nordwind Logistik GmbH</span></td><td>RE-20418</td><td>14 Oct</td><td class="num">€128,400</td><td class="num disc">2% · €2,568</td><td><span class="chip c-appr">Approved</span></td></tr>
-                <tr><td><span class="cbx on"></span></td><td><span class="co">Stahlbau Meyer AG</span></td><td>RE-20387</td><td>15 Oct</td><td class="num">€86,750</td><td class="num disc">3% · €2,602</td><td><span class="chip c-prep">Prepared</span></td></tr>
-                <tr><td><span class="cbx"></span></td><td><span class="co">Hansa Components</span></td><td>RE-20455</td><td>16 Oct</td><td class="num">€41,220</td><td class="num">—</td><td><span class="chip c-paid">Released</span></td></tr>
-                <tr><td><span class="cbx on"></span></td><td><span class="co">Rheinert Service</span></td><td>RE-20402</td><td>17 Oct</td><td class="num">€213,900</td><td class="num disc">2% · €4,278</td><td><span class="chip c-appr">Approved</span></td></tr>
-                <tr><td><span class="cbx"></span></td><td><span class="co">Brenner Werkzeug KG</span></td><td>RE-20471</td><td>18 Oct</td><td class="num">€9,640</td><td class="num disc">2% · €193</td><td><span class="chip c-prep">Prepared</span></td></tr>
-              </tbody>
-            </table>
-            <div class="runbar">
-              <span>3 invoices selected · <b>€429,050</b> · discount captured <b class="disc">€9,448</b></span>
-              <span style="display:flex;align-items:center;gap:14px">
-                <span class="gate"><span class="ok">✔ Management rights</span> · audit logged</span>
-                <button class="btn-rel">Release payment run →</button>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+        <span class="url">payment-planning · due dates</span></div>
+      <img class="shot" src="../assets/nzwl-faelligkeiten.jpg" alt="Traffic-light payment status overview and payments grouped by due window (creditor names blurred)" loading="lazy" />
     </div>
+    <div class="blurnote">Creditor names in the document list are blurred.</div>
   </div>
 </section>
 
-<!-- 4 · UI SCREEN C -->
+<!-- 4 · SCREEN C -->
 <section>
   <div class="wrap">
     <div class="sec-label">04 · User interface</div>
-    <h2>Screen C — Payables &amp; aging</h2>
-    <p class="lead">All open items in one place, filterable by entity and status, with aging buckets so overdue
-       exposure is obvious at a glance.</p>
-
+    <h2>Screen C — Overdue analysis</h2>
+    <p class="lead">How long has each payable been overdue? Aging buckets from 1–30 up to 90+ days, each
+       clickable to filter the ledger below, with the full overdue list underneath.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">liquidplan · payables</span></div>
-      <div class="screen-body">
-        <div class="app">
-          <aside class="side">
-            <div class="logo"><span class="m">₿</span> LiquidPlan</div>
-            <nav class="nav">
-              <a>▣ Overview</a><a class="on">▤ Payables</a><a>◷ Due &amp; discounts</a><a>✔ Approvals</a><a>⇅ Import</a><a>⚙ Settings</a>
-            </nav>
-            <div class="role">Role<b>Management · Approver</b></div>
-          </aside>
-          <div class="m-main">
-            <div class="m-top"><div><h4>Open payables</h4>
-              <div class="sub">312 items · €4.82M total</div></div><span class="ava">RR</span></div>
-            <div class="filters2">
-              <span class="pill sel">All entities</span><span class="pill">Entity DE</span><span class="pill">Entity SK</span>
-              <span class="pill">Status: open</span><span class="pill">🔍 Search vendor…</span>
-            </div>
-            <table class="tbl">
-              <thead><tr><th>Vendor</th><th>Entity</th><th>Invoice</th><th>Posted</th><th>Due</th>
-                <th style="text-align:right">Amount</th><th>Aging</th></tr></thead>
-              <tbody>
-                <tr><td><span class="co">Nordwind Logistik GmbH</span></td><td>DE</td><td>RE-20418</td><td>30 Sep</td><td>14 Oct</td><td class="num">€128,400</td><td><span class="age a1">0–30 d</span></td></tr>
-                <tr><td><span class="co">Stahlbau Meyer AG</span></td><td>DE</td><td>RE-20387</td><td>24 Sep</td><td>15 Oct</td><td class="num">€86,750</td><td><span class="age a1">0–30 d</span></td></tr>
-                <tr><td><span class="co">Hansa Components</span></td><td>SK</td><td>RE-20455</td><td>12 Sep</td><td>16 Oct</td><td class="num">€41,220</td><td><span class="age a2">31–60 d</span></td></tr>
-                <tr><td><span class="co">Rheinert Service</span></td><td>DE</td><td>RE-20402</td><td>28 Sep</td><td>17 Oct</td><td class="num">€213,900</td><td><span class="age a1">0–30 d</span></td></tr>
-                <tr><td><span class="co">Brenner Werkzeug KG</span></td><td>SK</td><td>RE-20471</td><td>05 Aug</td><td>18 Oct</td><td class="num">€9,640</td><td><span class="age a3">61–90 d</span></td></tr>
-                <tr><td><span class="co">Weser Antriebstechnik</span></td><td>DE</td><td>RE-20299</td><td>18 Sep</td><td>19 Oct</td><td class="num">€54,310</td><td><span class="age a2">31–60 d</span></td></tr>
-              </tbody>
-            </table>
-            <div class="runbar"><span>Aging exposure · <b>0–30 d</b> €3.1M · <b>31–60 d</b> €1.2M · <b class="disc" style="color:#dc2626">61–90 d</b> €0.52M</span>
-              <span style="color:var(--a-dim);font-size:.8rem">Export ↓</span></div>
-          </div>
-        </div>
-      </div>
+        <span class="url">payment-planning · overdue</span></div>
+      <img class="shot" src="../assets/nzwl-ueberfaellig.jpg" alt="Overdue aging buckets 1-30 / 31-60 / 61-90 / 90+ days and overdue ledger (creditor column blurred)" loading="lazy" />
+    </div>
+    <div class="blurnote">The creditor column of the overdue ledger is blurred.</div>
+  </div>
+</section>
+
+<!-- 5 · SCREEN D -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">05 · Core logic, visible</div>
+    <h2>Screen D — Creditor → debitor matching</h2>
+    <p class="lead">The core chain in detail: each booking document linked from creditor through raw-part and
+       finished-part numbers to the end customer — grouped per document or exploded to every detail line.</p>
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">payment-planning · matching</span></div>
+      <img class="shot" src="../assets/nzwl-kreditor-debitor.jpg" alt="Creditor-to-debitor matching table linking documents via raw- and finished-part numbers (creditor names blurred)" loading="lazy" />
+    </div>
+    <div class="blurnote">The creditor column is blurred; part numbers are generic internal codes.</div>
+  </div>
+</section>
+
+<!-- 6 · SCREEN E -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">06 · Data quality</div>
+    <h2>Screen E — Unmatched documents</h2>
+    <p class="lead">Where the match-quote comes from: the unmatched remainder broken down by reason and by
+       product branch, so the underlying data gaps (missing part number, no BOM match) are findable and fixable.</p>
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">payment-planning · unmatched</span></div>
+      <img class="shot" src="../assets/nzwl-nicht-verknuepft.jpg" alt="Unmatched documents broken down by reason and by product branch (no customer names)" loading="lazy" />
     </div>
   </div>
 </section>
 
-<!-- 5 · UI SCREEN D -->
+<!-- 7 · SCREEN F -->
 <section>
   <div class="wrap">
-    <div class="sec-label">05 · User interface</div>
-    <h2>Screen D — Cash-discount optimizer</h2>
-    <p class="lead">Invoices inside their early-payment window, sorted by deadline. The planner keeps the
-       proposed run within available liquidity while capturing the most discount.</p>
-
+    <div class="sec-label">07 · Governance</div>
+    <h2>Screen F — Revision-safe audit trail</h2>
+    <p class="lead">Every manual status change is logged chronologically and never overwritten — a complete,
+       searchable history of who set which traffic-light when, with CSV export and a controlled rollback.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">liquidplan · due &amp; discounts</span></div>
-      <div class="screen-body">
-        <div class="app">
-          <aside class="side">
-            <div class="logo"><span class="m">₿</span> LiquidPlan</div>
-            <nav class="nav">
-              <a>▣ Overview</a><a>▤ Payables</a><a class="on">◷ Due &amp; discounts</a><a>✔ Approvals</a><a>⇅ Import</a><a>⚙ Settings</a>
-            </nav>
-            <div class="role">Role<b>Management · Approver</b></div>
-          </aside>
-          <div class="m-main">
-            <div class="m-top"><div><h4>Cash-discount window</h4>
-              <div class="sub">24 invoices · capture before deadline</div></div><span class="ava">RR</span></div>
-            <div class="prow">
-              <div class="pcard" style="grid-column:span 1">
-                <table class="tbl" style="margin-top:0">
-                  <thead><tr><th>Vendor</th><th>Deadline</th><th style="text-align:right">Amount</th><th style="text-align:right">Save</th><th></th></tr></thead>
-                  <tbody>
-                    <tr><td><span class="co">Stahlbau Meyer AG</span></td><td><span class="age a3">2 days</span></td><td class="num">€86,750</td><td class="num disc">€2,602</td><td><span class="cbx on"></span></td></tr>
-                    <tr><td><span class="co">Rheinert Service</span></td><td><span class="age a2">4 days</span></td><td class="num">€213,900</td><td class="num disc">€4,278</td><td><span class="cbx on"></span></td></tr>
-                    <tr><td><span class="co">Nordwind Logistik</span></td><td><span class="age a2">5 days</span></td><td class="num">€128,400</td><td class="num disc">€2,568</td><td><span class="cbx on"></span></td></tr>
-                    <tr><td><span class="co">Weser Antriebstechnik</span></td><td><span class="age a1">8 days</span></td><td class="num">€54,310</td><td class="num disc">€1,086</td><td><span class="cbx"></span></td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="pcard">
-                <h5>Proposed run vs. liquidity</h5><div class="cap">Stays within available cash</div>
-                <div class="gauge"><span class="g" style="width:16%"></span></div>
-                <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--a-dim)">
-                  <span>Run <b style="color:var(--a-ink)">€0.43M</b></span><span>Available <b style="color:var(--a-ink)">€2.67M</b></span></div>
-                <div class="valrow">
-                  <div class="valbox"><div class="vl">Discount captured</div><div class="vn disc">€9,448</div></div>
-                  <div class="valbox"><div class="vl">Deadlines ≤ 3 d</div><div class="vn">7</div></div>
-                </div>
-                <button class="btn-rel" style="width:100%;margin-top:13px">Add to payment run →</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <span class="url">payment-planning · admin</span></div>
+      <img class="shot" src="../assets/nzwl-admin.jpg" alt="Revision-safe change history of document traffic-light statuses (document numbers only)" loading="lazy" />
     </div>
   </div>
 </section>
 
-<!-- 6 · UI SCREEN E -->
+<!-- 8 · SCREEN G -->
 <section>
   <div class="wrap">
-    <div class="sec-label">06 · User interface</div>
-    <h2>Screen E — SAP import &amp; validation</h2>
-    <p class="lead">Drop the SAP open-item export; columns are auto-mapped and every row is validated before it
-       reaches the planner — no manual cleanup.</p>
-
+    <div class="sec-label">08 · Automation</div>
+    <h2>Screen G — Automated core logic</h2>
+    <p class="lead">The same engine runs unattended: a scheduled job twice a day pulls the latest code, runs
+       the matching core, writes to the database and exports the formatted Excel file — with a run log and status.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">liquidplan · import</span></div>
-      <div class="screen-body">
-        <div class="app">
-          <aside class="side">
-            <div class="logo"><span class="m">₿</span> LiquidPlan</div>
-            <nav class="nav">
-              <a>▣ Overview</a><a>▤ Payables</a><a>◷ Due &amp; discounts</a><a>✔ Approvals</a><a class="on">⇅ Import</a><a>⚙ Settings</a>
-            </nav>
-            <div class="role">Role<b>Management · Approver</b></div>
-          </aside>
-          <div class="m-main">
-            <div class="m-top"><div><h4>SAP open-item import</h4>
-              <div class="sub">Step 1 of the pipeline</div></div><span class="ava">RR</span></div>
-            <div class="prow">
-              <div class="pcard">
-                <h5>Upload</h5><div class="cap">Excel export from SAP (FBL1N / FBL5N)</div>
-                <div class="up-card"><div class="big">⇪</div>Drop .xlsx here or browse</div>
-                <div class="file-chip">📄 open_items_2026-W42.xlsx · 312 rows · 1.2 MB <span class="ok2">✓</span></div>
-              </div>
-              <div class="pcard">
-                <h5>Column mapping</h5><div class="cap">Auto-detected · editable</div>
-                <table class="map">
-                  <tr><td>Lieferant</td><td>→ Vendor</td><td class="ok2">✓</td></tr>
-                  <tr><td>Belegnr.</td><td>→ Invoice no.</td><td class="ok2">✓</td></tr>
-                  <tr><td>Nettofälligkeit</td><td>→ Due date</td><td class="ok2">✓</td></tr>
-                  <tr><td>Betrag in HW</td><td>→ Amount</td><td class="ok2">✓</td></tr>
-                  <tr><td>Skontofähig</td><td>→ Discount terms</td><td class="ok2">✓</td></tr>
-                </table>
-              </div>
-            </div>
-            <div class="valrow">
-              <div class="valbox"><div class="vl">Rows parsed</div><div class="vn">312</div></div>
-              <div class="valbox"><div class="vl">Errors</div><div class="vn" style="color:var(--green)">0</div></div>
-              <div class="valbox"><div class="vl">Warnings</div><div class="vn" style="color:var(--amber)">4</div></div>
-              <div class="valbox"><div class="vl">Ready to plan</div><div class="vn disc">308</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <span class="url">payment-planning · cron</span></div>
+      <img class="shot" src="../assets/nzwl-cron.jpg" alt="Cron status page: scheduled runs, run log and the git pull → core logic → Excel export chain (server and job names blurred)" loading="lazy" />
     </div>
+    <div class="blurnote">Server and job names are blurred.</div>
   </div>
 </section>
 

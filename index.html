@@ -280,12 +280,12 @@ const PROJECTS = [
   {
     title: "Payment Planning & Liquidity Dashboard",
     category: "Data & Business",
-    desc: "Client project: a liquidity-management dashboard that imports SAP exports, plans payments by due date and early-payment discount, and runs a multi-role approval workflow with login.",
-    arch: ["🐍 Python data-analysis core · Pandas", "🔒 On-premise · SAP Excel import"],
-    tech: ["Python", "Streamlit", "Pandas"],
+    desc: "Client project: a liquidity-control dashboard that imports SAP open items (OPOS), links creditor invoices to end customers through a four-step matching chain, and drives a traffic-light payment-approval workflow with a daily automated Excel export.",
+    arch: ["🐍 Python matching core · Pandas", "🗄 SQLite · SAP OPOS Excel import", "🔒 On-premise · daily cron"],
+    tech: ["Python", "Streamlit", "Pandas", "SQLite"],
     status: "private",
     img: "assets/payment-planning.png",
-    imgBadge: "Anonymized preview",
+    imgBadge: "Live tool · anonymized",
     previewLink: "preview/payment-planning.html"
   },
   {
