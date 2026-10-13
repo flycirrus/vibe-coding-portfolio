@@ -67,6 +67,7 @@
   .bar .url{margin-left:10px;font-size:.74rem;color:var(--faint);background:#0b1220;border:1px solid var(--border);
     padding:3px 12px;border-radius:7px}
   .screen-body{background:var(--a-bg)}
+  .shot{display:block;width:100%;height:auto}
 
   .app{display:flex;color:var(--a-ink);font-size:14px;min-height:430px}
   .app *{font-family:'Inter',system-ui,sans-serif}
@@ -175,8 +176,9 @@
       <a class="lnk pri" href="https://emptylegportal.com" target="_blank" rel="noopener">Open app ↗</a>
       <a class="lnk sec" href="https://emptylegportal.com" target="_blank" rel="noopener">Open live map ↗</a>
     </div>
-    <p class="note">Live, public product. The admin screens below are rebuilt with fictional placeholder
-       flights and figures — no real customer or booking data is shown.</p>
+    <p class="note">Live, public product. The public pages below are real screenshots from emptylegportal.com;
+       the operator / admin screens sit behind the login and are shown as representative rebuilds with
+       fictional data — no real customer or booking data is shown.</p>
   </div>
 </header>
 
@@ -210,28 +212,34 @@
   </div>
 </section>
 
-<!-- 2 · LOGIN -->
+<!-- 2 · PUBLIC SITE (real screenshot) -->
 <section>
   <div class="wrap">
-    <div class="sec-label">02 · User interface</div>
-    <h2>Screen A — Operator login</h2>
-    <p class="lead">The admin area sits behind a role-based login; public booking pages stay open to everyone.</p>
+    <div class="sec-label">02 · User interface · live screenshot</div>
+    <h2>Screen A — Public booking site</h2>
+    <p class="lead">The public landing page at emptylegportal.com — open to everyone. Real screenshot from
+       the live site.</p>
 
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">emptylegportal.com · admin / login</span></div>
-      <div class="screen-body">
-        <div class="login-wrap">
-          <div class="login-card">
-            <div class="brand-row"><span class="m">✈</span> Empty-Leg Portal</div>
-            <div class="sub">Operator admin · sign in</div>
-            <div class="field"><label>Email</label><div class="inp">ops@charter-demo.com</div></div>
-            <div class="field"><label>Password</label><div class="inp ph">••••••••••</div></div>
-            <button class="btn-full">Sign in</button>
-            <div class="login-foot">Role-based access · operators &amp; admins only</div>
-          </div>
-        </div>
-      </div>
+        <span class="url">emptylegportal.com</span></div>
+      <div class="screen-body"><img class="shot" src="../assets/emptyleg-landing.jpg" loading="lazy" alt="Empty-Leg Portal — live public landing page"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · LOGIN (real screenshot) -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">03 · User interface · live screenshot</div>
+    <h2>Screen B — Operator login</h2>
+    <p class="lead">The admin area sits behind a role-based login (email or Google); public booking pages
+       stay open to everyone. Real screenshot from the live site.</p>
+
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">emptylegportal.com/login</span></div>
+      <div class="screen-body"><img class="shot" src="../assets/emptyleg-login.jpg" loading="lazy" alt="Empty-Leg Portal — live login page"></div>
     </div>
   </div>
 </section>
@@ -239,10 +247,11 @@
 <!-- 3 · FLIGHTS OVERVIEW -->
 <section>
   <div class="wrap">
-    <div class="sec-label">03 · User interface</div>
-    <h2>Screen B — Current flights &amp; live map</h2>
-    <p class="lead">The overview of available empty legs: route, aircraft, seats and live price, with a map
-       of where the legs are flying right now.</p>
+    <div class="sec-label">04 · User interface · representative rebuild</div>
+    <h2>Screen C — Current flights &amp; live map</h2>
+    <p class="lead">The operator's overview of available empty legs: route, aircraft, seats and live price,
+       with a map of where the legs are flying. This area sits behind the operator login, so it's shown here
+       as a representative rebuild with fictional data.</p>
 
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
@@ -305,10 +314,11 @@
 <!-- 4 · ADMIN SETTINGS -->
 <section>
   <div class="wrap">
-    <div class="sec-label">04 · User interface</div>
-    <h2>Screen C — Admin settings</h2>
-    <p class="lead">The settings the operator can change: pricing rules, markup and discount, visibility of
-       legs, and how inquiries are handled — all editable without touching code.</p>
+    <div class="sec-label">05 · User interface · representative rebuild</div>
+    <h2>Screen D — Admin settings</h2>
+    <p class="lead">The settings the operator can change: pricing rules, markup and discount, leg visibility
+       and inquiry routing. Behind the operator login, so shown here as a representative rebuild with
+       fictional data.</p>
 
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
