@@ -62,9 +62,6 @@
     padding:3px 12px;border-radius:7px}
   .shot{display:block;width:100%;height:auto}
 
-  .blurnote{font-size:.76rem;color:var(--faint);margin-top:9px;display:flex;align-items:center;gap:7px}
-  .blurnote::before{content:"▦";color:var(--accent)}
-
   footer{padding:40px 0 60px;color:var(--faint);font-size:.82rem;text-align:center}
   @media(max-width:820px){
     .pipe{grid-template-columns:1fr 1fr}
@@ -84,15 +81,15 @@
     <h1>Payment Planning &amp; Liquidity Platform</h1>
     <p>A liquidity-control tool for a multi-entity industrial group. It imports SAP open items (OPOS),
        runs a four-step chain that links every creditor invoice through raw- and finished-part numbers to
-       the end customer, then drives a traffic-light payment-approval workflow with a revision-safe audit
-       trail. A scheduled job re-runs the core twice a day and exports Excel — 100% on-premise.</p>
+       the end customer, then drives a traffic-light payment-approval workflow. A scheduled job re-runs the
+       core twice a day and exports Excel — 100% on-premise.</p>
     <div class="meta">
       <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span>
       <span class="tag">SAP OPOS import</span><span class="tag">SQLite</span><span class="tag">Role-based access</span>
       <span class="tag">On-premise</span><span class="tag">Daily cron</span>
     </div>
-    <p class="note">Real screenshots from the live tool. All creditor, end-customer and group-entity names
-       are blurred — no identifying customer data is shown. Figures shown are the client's own operational
+    <p class="note">Real screenshots from the live tool. Creditor, end-customer and group-entity identifiers
+       are anonymized — no identifying customer data is shown. The figures are the client's own operational
        KPIs with identities removed.</p>
   </div>
 </header>
@@ -132,14 +129,13 @@
   <div class="wrap">
     <div class="sec-label">02 · User interface</div>
     <h2>Screen A — Overview dashboard</h2>
-    <p class="lead">Consolidated group view: total payables, how much is linked, the match-quote, what's due
-       per week, and the top creditors by amount and by end customer.</p>
+    <p class="lead">Consolidated group view: total open payables, how much is linked, the match-quote, and
+       what's due per week — the headline numbers on one screen.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
         <span class="url">payment-planning · dashboard</span></div>
-      <img class="shot" src="../assets/nzwl-dashboard.jpg" alt="Overview dashboard with KPIs, weekly due amounts and top-creditor analyses (names blurred)" loading="lazy" />
+      <img class="shot" src="../assets/nzwl-dashboard.jpg" alt="Overview dashboard: total payables, match-quote and weekly due amounts" loading="lazy" />
     </div>
-    <div class="blurnote">Creditor and end-customer names in the two analysis charts are blurred.</div>
   </div>
 </section>
 
@@ -148,14 +144,13 @@
   <div class="wrap">
     <div class="sec-label">03 · User interface</div>
     <h2>Screen B — Due dates &amp; traffic-light workflow</h2>
-    <p class="lead">Every document carries a status — Stop / In review / Released / none. Payments are grouped
-       by time window (this week, next week, later…) so nothing is paid too early or missed.</p>
+    <p class="lead">Every document carries a status — Stop / In review / Released / none — and payments are
+       grouped by time window, so nothing is paid too early or missed.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">payment-planning · due dates</span></div>
-      <img class="shot" src="../assets/nzwl-faelligkeiten.jpg" alt="Traffic-light payment status overview and payments grouped by due window (creditor names blurred)" loading="lazy" />
+        <span class="url">payment-planning · due-dates</span></div>
+      <img class="shot" src="../assets/nzwl-faelligkeiten.jpg" alt="Traffic-light payment status overview and payments grouped by due window" loading="lazy" />
     </div>
-    <div class="blurnote">Creditor names in the document list are blurred.</div>
   </div>
 </section>
 
@@ -165,75 +160,42 @@
     <div class="sec-label">04 · User interface</div>
     <h2>Screen C — Overdue analysis</h2>
     <p class="lead">How long has each payable been overdue? Aging buckets from 1–30 up to 90+ days, each
-       clickable to filter the ledger below, with the full overdue list underneath.</p>
+       clickable to filter the underlying ledger.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
         <span class="url">payment-planning · overdue</span></div>
-      <img class="shot" src="../assets/nzwl-ueberfaellig.jpg" alt="Overdue aging buckets 1-30 / 31-60 / 61-90 / 90+ days and overdue ledger (creditor column blurred)" loading="lazy" />
+      <img class="shot" src="../assets/nzwl-ueberfaellig.jpg" alt="Overdue aging buckets: 1-30 / 31-60 / 61-90 / 90+ days" loading="lazy" />
     </div>
-    <div class="blurnote">The creditor column of the overdue ledger is blurred.</div>
   </div>
 </section>
 
 <!-- 5 · SCREEN D -->
 <section>
   <div class="wrap">
-    <div class="sec-label">05 · Core logic, visible</div>
-    <h2>Screen D — Creditor → debitor matching</h2>
-    <p class="lead">The core chain in detail: each booking document linked from creditor through raw-part and
-       finished-part numbers to the end customer — grouped per document or exploded to every detail line.</p>
+    <div class="sec-label">05 · Data quality</div>
+    <h2>Screen D — Unmatched documents</h2>
+    <p class="lead">Where the match-quote comes from: the unmatched remainder broken down by reason and by
+       product branch, so the underlying data gaps (missing part number, no BOM match) are findable and fixable.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">payment-planning · matching</span></div>
-      <img class="shot" src="../assets/nzwl-kreditor-debitor.jpg" alt="Creditor-to-debitor matching table linking documents via raw- and finished-part numbers (creditor names blurred)" loading="lazy" />
+        <span class="url">payment-planning · unmatched</span></div>
+      <img class="shot" src="../assets/nzwl-nicht-verknuepft.jpg" alt="Unmatched documents broken down by reason and by product branch" loading="lazy" />
     </div>
-    <div class="blurnote">The creditor column is blurred; part numbers are generic internal codes.</div>
   </div>
 </section>
 
 <!-- 6 · SCREEN E -->
 <section>
   <div class="wrap">
-    <div class="sec-label">06 · Data quality</div>
-    <h2>Screen E — Unmatched documents</h2>
-    <p class="lead">Where the match-quote comes from: the unmatched remainder broken down by reason and by
-       product branch, so the underlying data gaps (missing part number, no BOM match) are findable and fixable.</p>
-    <div class="screen">
-      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">payment-planning · unmatched</span></div>
-      <img class="shot" src="../assets/nzwl-nicht-verknuepft.jpg" alt="Unmatched documents broken down by reason and by product branch (no customer names)" loading="lazy" />
-    </div>
-  </div>
-</section>
-
-<!-- 7 · SCREEN F -->
-<section>
-  <div class="wrap">
-    <div class="sec-label">07 · Governance</div>
-    <h2>Screen F — Revision-safe audit trail</h2>
-    <p class="lead">Every manual status change is logged chronologically and never overwritten — a complete,
-       searchable history of who set which traffic-light when, with CSV export and a controlled rollback.</p>
-    <div class="screen">
-      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">payment-planning · admin</span></div>
-      <img class="shot" src="../assets/nzwl-admin.jpg" alt="Revision-safe change history of document traffic-light statuses (document numbers only)" loading="lazy" />
-    </div>
-  </div>
-</section>
-
-<!-- 8 · SCREEN G -->
-<section>
-  <div class="wrap">
-    <div class="sec-label">08 · Automation</div>
-    <h2>Screen G — Automated core logic</h2>
+    <div class="sec-label">06 · Automation</div>
+    <h2>Screen E — Automated core logic</h2>
     <p class="lead">The same engine runs unattended: a scheduled job twice a day pulls the latest code, runs
        the matching core, writes to the database and exports the formatted Excel file — with a run log and status.</p>
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">payment-planning · cron</span></div>
-      <img class="shot" src="../assets/nzwl-cron.jpg" alt="Cron status page: scheduled runs, run log and the git pull → core logic → Excel export chain (server and job names blurred)" loading="lazy" />
+        <span class="url">payment-planning · automation</span></div>
+      <img class="shot" src="../assets/nzwl-cron.jpg" alt="Cron status page: scheduled runs, run log and the git pull → core logic → Excel export chain" loading="lazy" />
     </div>
-    <div class="blurnote">Server and job names are blurred.</div>
   </div>
 </section>
 
