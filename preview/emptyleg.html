@@ -176,9 +176,9 @@
       <a class="lnk pri" href="https://emptylegportal.com" target="_blank" rel="noopener">Open app ↗</a>
       <a class="lnk sec" href="https://emptylegportal.com" target="_blank" rel="noopener">Open live map ↗</a>
     </div>
-    <p class="note">Live, public product. The public pages below are real screenshots from emptylegportal.com;
-       the operator / admin screens sit behind the login and are shown as representative rebuilds with
-       fictional data — no real customer or booking data is shown.</p>
+    <p class="note">Live, public product. All screens below are real screenshots from emptylegportal.com —
+       the public pages plus the operator admin area. Customer names and email addresses are blurred for
+       privacy; business data (flights, prices, pricing rules) is shown as it is.</p>
   </div>
 </header>
 
@@ -244,124 +244,66 @@
   </div>
 </section>
 
-<!-- 3 · FLIGHTS OVERVIEW -->
+<!-- 4 · ADMIN DASHBOARD (real screenshot) -->
 <section>
   <div class="wrap">
-    <div class="sec-label">04 · User interface · representative rebuild</div>
-    <h2>Screen C — Current flights &amp; live map</h2>
-    <p class="lead">The operator's overview of available empty legs: route, aircraft, seats and live price,
-       with a map of where the legs are flying. This area sits behind the operator login, so it's shown here
-       as a representative rebuild with fictional data.</p>
+    <div class="sec-label">04 · Admin area · live screenshot</div>
+    <h2>Screen C — Operator dashboard</h2>
+    <p class="lead">The admin dashboard behind the login: live KPIs (flights, inquiries, users), recent
+       inquiries and the ops-system sync. Real screenshot — customer names are blurred for privacy.</p>
 
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">emptylegportal.com · flights</span></div>
-      <div class="screen-body">
-        <div class="app">
-          <aside class="side">
-            <div class="logo"><span class="m">✈</span> EmptyLeg</div>
-            <nav class="nav">
-              <a class="on">✈ Flights</a><a>✉ Requests</a><a>👥 Users</a><a>€ Pricing</a><a>⚙ Settings</a>
-            </nav>
-            <div class="role">Signed in<b>Operator · Admin</b></div>
-          </aside>
-          <div class="m-main">
-            <div class="m-top"><div><h4>Available empty legs</h4>
-              <div class="sub">8 live legs · updated 2 min ago</div></div><span class="ava">RR</span></div>
-            <div class="kpis">
-              <div class="kpi"><div class="lab">Live legs</div><div class="val">8</div><div class="d nt">next 14 days</div></div>
-              <div class="kpi"><div class="lab">Open requests</div><div class="val">5</div><div class="d up">▲ 2 today</div></div>
-              <div class="kpi"><div class="lab">Avg. price</div><div class="val">€6.4k</div><div class="d nt">per leg</div></div>
-              <div class="kpi"><div class="lab">Seats open</div><div class="val">41</div><div class="d nt">across legs</div></div>
-            </div>
-            <div class="ov">
-              <div class="pcard"><h5>Current legs</h5><div class="cap">Click a leg to open its booking page</div>
-                <table class="tbl" style="margin-top:4px">
-                  <thead><tr><th>Route</th><th>Aircraft</th><th>Date</th><th style="text-align:right">Seats</th><th style="text-align:right">Price</th><th>Status</th></tr></thead>
-                  <tbody>
-                    <tr><td class="route">ZRH → NCE</td><td><span class="ac">Phenom 300</span></td><td>14 Oct</td><td class="num">6</td><td class="num">€5,900</td><td><span class="chip c-av">Available</span></td></tr>
-                    <tr><td class="route">GVA → IBZ</td><td><span class="ac">Citation XLS</span></td><td>15 Oct</td><td class="num">8</td><td class="num">€7,400</td><td><span class="chip c-hot">Last minute</span></td></tr>
-                    <tr><td class="route">MUC → OLB</td><td><span class="ac">Challenger 350</span></td><td>16 Oct</td><td class="num">9</td><td class="num">€11,200</td><td><span class="chip c-av">Available</span></td></tr>
-                    <tr><td class="route">VIE → LCA</td><td><span class="ac">Learjet 75</span></td><td>17 Oct</td><td class="num">6</td><td class="num">€8,600</td><td><span class="chip c-book">Requested</span></td></tr>
-                    <tr><td class="route">FRA → PMI</td><td><span class="ac">Phenom 300</span></td><td>18 Oct</td><td class="num">7</td><td class="num">€6,100</td><td><span class="chip c-av">Available</span></td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="pcard"><h5>Live map</h5><div class="cap">Departure · destination</div>
-                <div class="map-panel">
-                  <svg viewBox="0 0 300 210" preserveAspectRatio="none">
-                    <path d="M45 60 L120 95" stroke="#2563eb" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
-                    <path d="M70 120 L185 70" stroke="#2563eb" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
-                    <path d="M150 50 L235 130" stroke="#0ea5a3" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
-                  </svg>
-                  <span class="pin" style="left:15%;top:28%">ZRH</span>
-                  <span class="pin b" style="left:40%;top:45%">NCE</span>
-                  <span class="pin" style="left:23%;top:57%">GVA</span>
-                  <span class="pin b" style="left:62%;top:33%">IBZ</span>
-                  <span class="pin" style="left:50%;top:24%">MUC</span>
-                  <span class="pin b" style="left:78%;top:62%">OLB</span>
-                  <div class="map-legend"><span><span class="d" style="background:#2563eb"></span>Departure</span><span><span class="d" style="background:#0ea5a3"></span>Destination</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <span class="url">emptylegportal.com · admin / dashboard</span></div>
+      <div class="screen-body"><img class="shot" src="../assets/emptyleg-dashboard.jpg" loading="lazy" alt="Empty-Leg Portal — admin dashboard (customer names blurred)"></div>
     </div>
   </div>
 </section>
 
-<!-- 4 · ADMIN SETTINGS -->
+<!-- 5 · FLIGHT MANAGEMENT (real screenshot) -->
 <section>
   <div class="wrap">
-    <div class="sec-label">05 · User interface · representative rebuild</div>
-    <h2>Screen D — Admin settings</h2>
-    <p class="lead">The settings the operator can change: pricing rules, markup and discount, leg visibility
-       and inquiry routing. Behind the operator login, so shown here as a representative rebuild with
-       fictional data.</p>
+    <div class="sec-label">05 · Admin area · live screenshot</div>
+    <h2>Screen D — Flight management</h2>
+    <p class="lead">The full flight table: route, date, aircraft, seats, computed price, public visibility and
+       inquiries per leg — all editable. Real screenshot from the live admin.</p>
 
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">emptylegportal.com · settings</span></div>
-      <div class="screen-body">
-        <div class="app">
-          <aside class="side">
-            <div class="logo"><span class="m">✈</span> EmptyLeg</div>
-            <nav class="nav">
-              <a>✈ Flights</a><a>✉ Requests</a><a>👥 Users</a><a>€ Pricing</a><a class="on">⚙ Settings</a>
-            </nav>
-            <div class="role">Signed in<b>Operator · Admin</b></div>
-          </aside>
-          <div class="m-main">
-            <div class="m-top"><div><h4>Portal settings</h4>
-              <div class="sub">Pricing, visibility &amp; inquiries</div></div><span class="ava">RR</span></div>
-            <div class="set-grid">
-              <div>
-                <div class="set-sec">
-                  <div class="set-row"><div class="lab"><b>Auto-pricing</b><span>Apply pricing rules to new legs</span></div><span class="sw on"></span></div>
-                  <div class="set-row"><div class="lab"><b>Default markup</b><span>On top of base charter rate</span></div><span class="selbox">+ 12 %</span></div>
-                  <div class="set-row"><div class="lab"><b>Last-minute discount</b><span>Legs within 48 h of departure</span></div><span class="selbox">− 15 %</span></div>
-                  <div class="set-row"><div class="lab"><b>Currency</b><span>Shown on public pages</span></div><span class="selbox">EUR €</span></div>
-                </div>
-              </div>
-              <div>
-                <div class="set-sec">
-                  <div class="set-row"><div class="lab"><b>Show legs publicly</b><span>Publish to the public map</span></div><span class="sw on"></span></div>
-                  <div class="set-row"><div class="lab"><b>Hide sold-out legs</b><span>Auto-remove when fully booked</span></div><span class="sw on"></span></div>
-                  <div class="set-row"><div class="lab"><b>Inquiry auto-reply</b><span>Email confirmation to requester</span></div><span class="sw"></span></div>
-                  <div class="set-row"><div class="lab"><b>Request routing</b><span>Who gets new inquiries</span></div><span class="selbox">Ops team</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="valrow" style="margin-top:14px">
-              <div class="valbox"><div class="vl">Active pricing rules</div><div class="vn">6</div></div>
-              <div class="valbox"><div class="vl">Published legs</div><div class="vn">8</div></div>
-              <div class="valbox"><div class="vl">Operator users</div><div class="vn">4</div></div>
-              <div style="display:flex;align-items:flex-end"><button class="btn-rel" style="width:100%">Save changes</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <span class="url">emptylegportal.com · admin / flights</span></div>
+      <div class="screen-body"><img class="shot" src="../assets/emptyleg-flights.jpg" loading="lazy" alt="Empty-Leg Portal — flight management table"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · PRICING (real screenshot) -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">06 · Admin area · live screenshot</div>
+    <h2>Screen E — Pricing configuration</h2>
+    <p class="lead">The pricing engine the operator controls: distance- or time-based rate, hourly price,
+       min/max, rounding, a live example-calculation preview and per-country surcharges. Real screenshot.</p>
+
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">emptylegportal.com · admin / pricing</span></div>
+      <div class="screen-body"><img class="shot" src="../assets/emptyleg-pricing.jpg" loading="lazy" alt="Empty-Leg Portal — pricing configuration"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · USER MANAGEMENT (real screenshot) -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">07 · Admin area · live screenshot</div>
+    <h2>Screen F — User management</h2>
+    <p class="lead">Role-based user management across 100+ accounts (brokers, ID travellers), with per-user
+       roles and actions. Real screenshot — names &amp; emails are blurred for privacy.</p>
+
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">emptylegportal.com · admin / users</span></div>
+      <div class="screen-body"><img class="shot" src="../assets/emptyleg-users.jpg" loading="lazy" alt="Empty-Leg Portal — user management (names and emails blurred)"></div>
     </div>
   </div>
 </section>

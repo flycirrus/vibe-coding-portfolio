@@ -63,6 +63,8 @@
   .bar .url{margin-left:10px;font-size:.74rem;color:var(--faint);background:#0b1220;border:1px solid var(--border);
     padding:3px 12px;border-radius:7px}
   .screen-body{background:var(--a-bg);padding:22px 16px;display:flex;justify-content:center}
+  .shot-wrap{display:flex;justify-content:center;margin-top:8px}
+  .shot-phone{display:block;width:300px;max-width:100%;border-radius:24px;border:1px solid var(--border);box-shadow:0 26px 64px -30px #000}
 
   /* phone frame */
   .phone{width:340px;max-width:100%;background:#fff;color:var(--a-ink);border-radius:22px;overflow:hidden;
@@ -122,8 +124,8 @@
     <div class="links">
       <a class="lnk pri" href="https://fuelbeer.vercel.app" target="_blank" rel="noopener">Open app ↗</a>
     </div>
-    <p class="note">Personal aviation tool. Figures below are illustrative placeholders, not an operational
-       flight-planning source.</p>
+    <p class="note">Personal aviation tool. The screens below are real screenshots from the live app; crew
+       names are blurred for privacy. Not an operational flight-planning source.</p>
   </div>
 </header>
 
@@ -157,78 +159,37 @@
   </div>
 </section>
 
-<!-- 2 · CALCULATOR -->
+<!-- 2 · CALC (real screenshot) -->
 <section>
   <div class="wrap">
-    <div class="sec-label">02 · User interface</div>
-    <h2>Screen A — Fuel calculator &amp; breakdown</h2>
-    <p class="lead">The calculations overview: block fuel up top, then every component that makes it up —
-       so the figure is always explainable, not just a number.</p>
-
-    <div class="screen">
-      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">fuelbeer.vercel.app · calculator</span></div>
-      <div class="screen-body">
-        <div class="phone">
-          <div class="ph-head">
-            <div class="ap">⛽ FuelBeer</div>
-            <div class="leg">FRA → LIS · A300-600 · 02:55 trip</div>
-          </div>
-          <div class="ph-body">
-            <div class="fuel-hero">
-              <div class="lab">Block fuel</div>
-              <div class="big">18,400 <span class="unit">kg</span></div>
-              <div class="sub">✓ within tank capacity · 3,900 kg margin</div>
-            </div>
-            <div class="mini-ctl">
-              <span class="segm on">kg</span><span class="segm">lbs</span><span class="segm">US gal</span>
-            </div>
-            <ul class="brk">
-              <li><span class="nm"><span class="ic">🛫</span><span>Trip fuel<span class="mut">02:55 @ 4,900 kg/h</span></span></span><span class="vv">11,450 kg</span></li>
-              <li><span class="nm"><span class="ic">📉</span><span>Contingency<span class="mut">5 % of trip</span></span></span><span class="vv">573 kg</span></li>
-              <li><span class="nm"><span class="ic">🛬</span><span>Alternate<span class="mut">LIS → OPO</span></span></span><span class="vv">2,100 kg</span></li>
-              <li><span class="nm"><span class="ic">⏱</span><span>Final reserve<span class="mut">30 min holding</span></span></span><span class="vv">2,450 kg</span></li>
-              <li><span class="nm"><span class="ic">🅟</span><span>Taxi<span class="mut">out + in</span></span></span><span class="vv">400 kg</span></li>
-              <li><span class="nm"><span class="ic">➕</span><span>Extra<span class="mut">captain's discretion</span></span></span><span class="vv">1,427 kg</span></li>
-              <li class="total"><span class="nm"><span class="ic" style="background:#0f1b33;color:#fff">Σ</span><span>Block fuel</span></span><span class="vv">18,400 kg</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="sec-label">02 · User interface · live screenshot</div>
+    <h2>Screen A — Fuel calculator</h2>
+    <p class="lead">The CALC tab on a real leg: next departure, current vs. desired fuel, and the computed
+       uplift in both litres and lbs — plus the fueler's price at the airport and the estimated cost. Real
+       screenshot from the live app.</p>
+    <div class="shot-wrap"><img class="shot-phone" src="../assets/fuelbeer-calc.jpg" loading="lazy" alt="FuelBeer — fuel calculator (CALC tab)"></div>
   </div>
 </section>
 
-<!-- 3 · SUMMARY -->
+<!-- 3 · FUEL LIST (real screenshot) -->
 <section>
   <div class="wrap">
-    <div class="sec-label">03 · User interface</div>
-    <h2>Screen B — Figures at a glance</h2>
-    <p class="lead">A compact summary of the key fuel figures for the leg — the numbers a pilot actually
-       reads back before pushback.</p>
+    <div class="sec-label">03 · User interface · live screenshot</div>
+    <h2>Screen B — Fuel list</h2>
+    <p class="lead">A searchable fuel-price list across 375 airports (ICAO/IATA), imported from the weekly
+       fuel sheet — tap any airport to expand its fuelers and prices. Real screenshot.</p>
+    <div class="shot-wrap"><img class="shot-phone" src="../assets/fuelbeer-list.jpg" loading="lazy" alt="FuelBeer — fuel list across airports"></div>
+  </div>
+</section>
 
-    <div class="screen">
-      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="url">fuelbeer.vercel.app · summary</span></div>
-      <div class="screen-body">
-        <div class="phone">
-          <div class="ph-head">
-            <div class="ap">⛽ FuelBeer</div>
-            <div class="leg">FRA → LIS · summary</div>
-          </div>
-          <div class="ph-body">
-            <div class="sum-grid">
-              <div class="sumbox"><div class="l">Block fuel</div><div class="v">18,400 kg</div><div class="d">ready</div></div>
-              <div class="sumbox"><div class="l">Min. required</div><div class="v">16,973 kg</div><div class="d">legal minimum</div></div>
-              <div class="sumbox"><div class="l">Extra on board</div><div class="v">1,427 kg</div><div class="d">+ ~17 min</div></div>
-              <div class="sumbox"><div class="l">Tank margin</div><div class="v">3,900 kg</div><div class="d">within capacity</div></div>
-              <div class="sumbox"><div class="l">Est. ZFW room</div><div class="v">OK</div><div class="d">no limit hit</div></div>
-              <div class="sumbox"><div class="l">Endurance</div><div class="v">03:54</div><div class="d">at block fuel</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- 4 · SCHEDULE (real screenshot) -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">04 · User interface · live screenshot</div>
+    <h2>Screen C — Schedule &amp; handling</h2>
+    <p class="lead">The pilot's schedule with per-leg departure/arrival fuelers, prices, fees and handler
+       contacts. Real screenshot — crew names are blurred for privacy.</p>
+    <div class="shot-wrap"><img class="shot-phone" src="../assets/fuelbeer-schedule.jpg" loading="lazy" alt="FuelBeer — schedule and handling (crew names blurred)"></div>
   </div>
 </section>
 
