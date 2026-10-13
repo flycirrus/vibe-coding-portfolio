@@ -37,9 +37,9 @@
   section h2{font-size:1.4rem;margin:6px 0 4px}
   section > .wrap > p.lead{color:var(--dim);margin-bottom:22px;max-width:720px}
 
-  /* anonymization blur */
-  .blur{filter:blur(6px);user-select:none;-webkit-user-select:none;cursor:default}
-  .blur.s{filter:blur(4.5px)}
+  /* example data — shown readably (representative placeholder values, not the real portfolio) */
+  .blur{}
+  .blur.s{}
 
   /* core pipeline */
   .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -82,7 +82,7 @@
   .goalval .now{font-size:1.7rem;font-weight:700;font-family:'Space Grotesk'}
   .goalval .tgt{font-size:.92rem;color:var(--dim)}
   .track{height:14px;border-radius:8px;background:#0e1730;border:1px solid var(--border);overflow:hidden}
-  .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:62%}
+  .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:84%}
   .ticks{display:flex;justify-content:space-between;font-size:.7rem;color:var(--faint);margin-top:6px}
   .obj{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:.86rem}
   .obj:last-child{border-bottom:none}
@@ -123,13 +123,13 @@
     <h1>ImmoNavigator — Investment Dashboard</h1>
     <p>A personal real-estate investment dashboard: it tracks a multi-property portfolio, computes cashflow,
        equity and yield per property, models sale scenarios, and simulates a <b>"path to a million"</b>
-       strategy over 10 years. Private tool — every figure on this page is blurred.</p>
+       strategy over 10 years. Private tool — the figures below are representative example values.</p>
     <div class="meta">
       <span class="tag">HTML/CSS/JS</span><span class="tag">Dashboard</span><span class="tag">Scenario simulator</span>
       <span class="tag">Netlify</span><span class="tag">Personal finance</span>
     </div>
-    <p class="note">Personal finances. All values, yields and property addresses below are blurred on purpose —
-       this preview shows the structure and the UI, never the real numbers.</p>
+    <p class="note">Personal finances. The values, yields and property labels below are representative example
+       data — this preview shows the structure and the UI, not the real portfolio.</p>
   </div>
 </header>
 
@@ -169,7 +169,7 @@
     <div class="sec-label">02 · User interface</div>
     <h2>Screen A — Portfolio &amp; "Weg zur Million"</h2>
     <p class="lead">The home view: portfolio KPIs up top, the progress bar toward the €1M goal, and a
-       per-property glance. Figures blurred.</p>
+       per-property glance. Representative example values.</p>
 
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
@@ -177,7 +177,7 @@
       <div class="screen-body">
         <div class="d-top">
           <div class="d-brand"><span class="m">🏠</span><div>ImmoNavigator<small>Investment Dashboard · Portfolio-Übersicht</small></div></div>
-          <span class="d-badge">🔒 Persönlich · Zahlen anonymisiert</span>
+          <span class="d-badge">🔒 Persönlich · Beispielwerte</span>
         </div>
         <div class="kpis">
           <div class="kpi"><div class="l">Portfolio-Wert</div><div class="v blur">€ 842.000</div><div class="d blur s">+ 7,4 % YoY</div></div>
@@ -192,18 +192,18 @@
             <div class="track"><div class="fill"></div></div>
             <div class="ticks"><span>Start</span><span class="blur s">84 %</span><span>€ 1 Mio</span></div>
             <div style="margin-top:13px;font-size:.84rem;color:var(--dim)">Hochrechnung &amp; Verkaufsszenario mit
-              <span class="blur s">€ 158.000</span> Restweg — Details anonymisiert.</div>
+              <span>€ 158.000</span> Restweg bis zum Ziel — Beispielwerte.</div>
           </div>
           <div class="dcard">
             <h4>Objekte</h4><div class="cap">Cashflow je Objekt</div>
-            <div class="obj"><span class="nm"><span class="ic">🏢</span><span class="blur s">Königstein, Theresenstr. 4</span></span>
-              <span class="r"><span class="chip">Rendite-Star</span><span class="amt pos blur s">+ € 320</span></span></div>
-            <div class="obj"><span class="nm"><span class="ic">🏢</span><span class="blur s">Oberursel, Weilstraße 21</span></span>
-              <span class="r"><span class="chip">Aufbauer</span><span class="amt neg blur s">− € 240</span></span></div>
-            <div class="obj"><span class="nm"><span class="ic">🏢</span><span class="blur s">Frankfurt, Musterweg 8</span></span>
-              <span class="r"><span class="chip">Stabil</span><span class="amt pos blur s">+ € 95</span></span></div>
-            <div class="obj"><span class="nm"><span class="ic">🏢</span><span class="blur s">Bad Homburg, Beispielstr. 2</span></span>
-              <span class="r"><span class="chip">Neu</span><span class="amt blur s">€ —</span></span></div>
+            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 1 · Taunus-Region · 3-Zi.</span></span>
+              <span class="r"><span class="chip">Rendite-Star</span><span class="amt pos">+ € 320</span></span></div>
+            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 2 · Taunus-Region · 2-Zi.</span></span>
+              <span class="r"><span class="chip">Aufbauer</span><span class="amt neg">− € 240</span></span></div>
+            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 3 · Frankfurt · 2-Zi.</span></span>
+              <span class="r"><span class="chip">Stabil</span><span class="amt pos">+ € 95</span></span></div>
+            <div class="obj"><span class="nm"><span class="ic">🏢</span><span>Objekt 4 · Hochtaunus · 3-Zi.</span></span>
+              <span class="r"><span class="chip">Neu</span><span class="amt">in Prüfung</span></span></div>
           </div>
         </div>
       </div>
@@ -217,14 +217,14 @@
     <div class="sec-label">03 · User interface</div>
     <h2>Screen B — Objekt-Bewertung</h2>
     <p class="lead">Drill into one property: purchase vs. market value, equity, yield and monthly cashflow,
-       with the recommendation engine's note. Figures blurred.</p>
+       with the recommendation engine's note. Representative example values.</p>
 
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
         <span class="url">immonavigator · objekt / bewertung</span></div>
       <div class="screen-body">
         <div class="d-top">
-          <div class="d-brand"><span class="m">🏢</span><div><span class="blur s">KS-TH4 — Königstein, Theresenstr. 4</span><small>Bewertung &amp; Rendite</small></div></div>
+          <div class="d-brand"><span class="m">🏢</span><div><span>OBJ-1 — Objekt 1 · Taunus-Region</span><small>Bewertung &amp; Rendite</small></div></div>
           <span class="chip" style="font-size:.7rem;padding:4px 11px">⭐ Rendite-Star</span>
         </div>
         <div class="valgrid">
@@ -239,7 +239,7 @@
           <h4>Sofias Empfehlung</h4>
           <div style="font-size:.86rem;color:var(--dim);margin-top:6px">
             Starker Rendite-Beitrag; Wertzuwachs über Plan. Halten und Tilgung
-            <span class="blur s">um € 150/Monat</span> erhöhen beschleunigt den Weg zur Million. <span class="blur s">Details anonymisiert.</span>
+            <span>um € 150/Monat</span> erhöhen beschleunigt den Weg zur Million. <span style="color:var(--faint)">(Beispiel-Empfehlung)</span>
           </div>
         </div>
       </div>
@@ -253,7 +253,7 @@
     <div class="sec-label">04 · User interface</div>
     <h2>Screen C — Finanzierungs-Übersicht</h2>
     <p class="lead">All loans in one place: bank, interest rate (color-coded), remaining debt and monthly rate —
-       so refinancing candidates stand out. Figures blurred.</p>
+       so refinancing candidates stand out. Representative example values.</p>
 
     <div class="screen">
       <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
@@ -261,16 +261,16 @@
       <div class="screen-body">
         <div class="d-top">
           <div class="d-brand"><span class="m">🏦</span><div>Finanzierungs-Übersicht<small>Deine Darlehen im Überblick</small></div></div>
-          <span class="d-badge">🔒 Zahlen anonymisiert</span>
+          <span class="d-badge">🔒 Beispielwerte</span>
         </div>
         <table class="tbl">
           <thead><tr><th>Objekt</th><th>Bank</th><th>Zinssatz</th><th>Zinsbindung</th>
             <th style="text-align:right">Restschuld</th><th style="text-align:right">Rate / Monat</th></tr></thead>
           <tbody>
-            <tr><td class="blur s">KS-TH4 · Königstein</td><td class="blur s">Hausbank A</td><td><span class="rate lo blur s">1,4 %</span></td><td class="blur s">bis 2031</td><td class="num blur s">€ 227.000</td><td class="num blur s">€ 690</td></tr>
-            <tr><td class="blur s">OB-WS21 · Oberursel</td><td class="blur s">Bank B</td><td><span class="rate mid blur s">2,9 %</span></td><td class="blur s">bis 2028</td><td class="num blur s">€ 198.000</td><td class="num blur s">€ 740</td></tr>
-            <tr><td class="blur s">FFM-MW8 · Frankfurt</td><td class="blur s">Bank C</td><td><span class="rate hi blur s">3,8 %</span></td><td class="blur s">bis 2026</td><td class="num blur s">€ 164.000</td><td class="num blur s">€ 810</td></tr>
-            <tr><td class="blur s">BH-BS2 · Bad Homburg</td><td class="blur s">Bank A</td><td><span class="rate lo blur s">1,8 %</span></td><td class="blur s">bis 2034</td><td class="num blur s">€ 141.000</td><td class="num blur s">€ 470</td></tr>
+            <tr><td>OBJ-1 · Taunus</td><td>Hausbank A</td><td><span class="rate lo">1,4 %</span></td><td>bis 2031</td><td class="num">€ 227.000</td><td class="num">€ 690</td></tr>
+            <tr><td>OBJ-2 · Taunus</td><td>Bank B</td><td><span class="rate mid">2,9 %</span></td><td>bis 2028</td><td class="num">€ 198.000</td><td class="num">€ 740</td></tr>
+            <tr><td>OBJ-3 · Frankfurt</td><td>Bank C</td><td><span class="rate hi">3,8 %</span></td><td>bis 2026</td><td class="num">€ 164.000</td><td class="num">€ 810</td></tr>
+            <tr><td>OBJ-4 · Hochtaunus</td><td>Bank A</td><td><span class="rate lo">1,8 %</span></td><td>bis 2034</td><td class="num">€ 141.000</td><td class="num">€ 470</td></tr>
           </tbody>
         </table>
         <div style="margin-top:12px;display:flex;gap:11px;flex-wrap:wrap">
