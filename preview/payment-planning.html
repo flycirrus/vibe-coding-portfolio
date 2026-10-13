@@ -105,6 +105,7 @@
   .chip{font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
   .c-prep{background:#fef3e2;color:var(--amber)}.c-appr{background:#e8f0ff;color:var(--brand)}.c-paid{background:#e7f6ec;color:var(--green)}
   .disc{color:var(--green);font-weight:600}
+  .co{filter:blur(3.4px);user-select:none;-webkit-user-select:none;cursor:default}
   .cbx{width:15px;height:15px;border-radius:4px;border:1.5px solid #c3cee0;display:inline-block;vertical-align:-2px}
   .cbx.on{background:var(--brand);border-color:var(--brand);position:relative}
   .cbx.on::after{content:"✓";color:#fff;font-size:11px;position:absolute;top:-2px;left:2px}
@@ -281,11 +282,11 @@
               <thead><tr><th style="width:26px"></th><th>Vendor</th><th>Invoice</th><th>Due</th>
                 <th style="text-align:right">Amount</th><th style="text-align:right">Discount</th><th>Status</th></tr></thead>
               <tbody>
-                <tr><td><span class="cbx on"></span></td><td>Nordwind Logistik GmbH</td><td>RE-20418</td><td>14 Oct</td><td class="num">€128,400</td><td class="num disc">2% · €2,568</td><td><span class="chip c-appr">Approved</span></td></tr>
-                <tr><td><span class="cbx on"></span></td><td>Stahlbau Meyer AG</td><td>RE-20387</td><td>15 Oct</td><td class="num">€86,750</td><td class="num disc">3% · €2,602</td><td><span class="chip c-prep">Prepared</span></td></tr>
-                <tr><td><span class="cbx"></span></td><td>Hansa Components</td><td>RE-20455</td><td>16 Oct</td><td class="num">€41,220</td><td class="num">—</td><td><span class="chip c-paid">Released</span></td></tr>
-                <tr><td><span class="cbx on"></span></td><td>Rheinmetall Service</td><td>RE-20402</td><td>17 Oct</td><td class="num">€213,900</td><td class="num disc">2% · €4,278</td><td><span class="chip c-appr">Approved</span></td></tr>
-                <tr><td><span class="cbx"></span></td><td>Brenner Werkzeug KG</td><td>RE-20471</td><td>18 Oct</td><td class="num">€9,640</td><td class="num disc">2% · €193</td><td><span class="chip c-prep">Prepared</span></td></tr>
+                <tr><td><span class="cbx on"></span></td><td><span class="co">Nordwind Logistik GmbH</span></td><td>RE-20418</td><td>14 Oct</td><td class="num">€128,400</td><td class="num disc">2% · €2,568</td><td><span class="chip c-appr">Approved</span></td></tr>
+                <tr><td><span class="cbx on"></span></td><td><span class="co">Stahlbau Meyer AG</span></td><td>RE-20387</td><td>15 Oct</td><td class="num">€86,750</td><td class="num disc">3% · €2,602</td><td><span class="chip c-prep">Prepared</span></td></tr>
+                <tr><td><span class="cbx"></span></td><td><span class="co">Hansa Components</span></td><td>RE-20455</td><td>16 Oct</td><td class="num">€41,220</td><td class="num">—</td><td><span class="chip c-paid">Released</span></td></tr>
+                <tr><td><span class="cbx on"></span></td><td><span class="co">Rheinert Service</span></td><td>RE-20402</td><td>17 Oct</td><td class="num">€213,900</td><td class="num disc">2% · €4,278</td><td><span class="chip c-appr">Approved</span></td></tr>
+                <tr><td><span class="cbx"></span></td><td><span class="co">Brenner Werkzeug KG</span></td><td>RE-20471</td><td>18 Oct</td><td class="num">€9,640</td><td class="num disc">2% · €193</td><td><span class="chip c-prep">Prepared</span></td></tr>
               </tbody>
             </table>
             <div class="runbar">
@@ -333,12 +334,12 @@
               <thead><tr><th>Vendor</th><th>Entity</th><th>Invoice</th><th>Posted</th><th>Due</th>
                 <th style="text-align:right">Amount</th><th>Aging</th></tr></thead>
               <tbody>
-                <tr><td>Nordwind Logistik GmbH</td><td>DE</td><td>RE-20418</td><td>30 Sep</td><td>14 Oct</td><td class="num">€128,400</td><td><span class="age a1">0–30 d</span></td></tr>
-                <tr><td>Stahlbau Meyer AG</td><td>DE</td><td>RE-20387</td><td>24 Sep</td><td>15 Oct</td><td class="num">€86,750</td><td><span class="age a1">0–30 d</span></td></tr>
-                <tr><td>Hansa Components</td><td>SK</td><td>RE-20455</td><td>12 Sep</td><td>16 Oct</td><td class="num">€41,220</td><td><span class="age a2">31–60 d</span></td></tr>
-                <tr><td>Rheinmetall Service</td><td>DE</td><td>RE-20402</td><td>28 Sep</td><td>17 Oct</td><td class="num">€213,900</td><td><span class="age a1">0–30 d</span></td></tr>
-                <tr><td>Brenner Werkzeug KG</td><td>SK</td><td>RE-20471</td><td>05 Aug</td><td>18 Oct</td><td class="num">€9,640</td><td><span class="age a3">61–90 d</span></td></tr>
-                <tr><td>Weser Antriebstechnik</td><td>DE</td><td>RE-20299</td><td>18 Sep</td><td>19 Oct</td><td class="num">€54,310</td><td><span class="age a2">31–60 d</span></td></tr>
+                <tr><td><span class="co">Nordwind Logistik GmbH</span></td><td>DE</td><td>RE-20418</td><td>30 Sep</td><td>14 Oct</td><td class="num">€128,400</td><td><span class="age a1">0–30 d</span></td></tr>
+                <tr><td><span class="co">Stahlbau Meyer AG</span></td><td>DE</td><td>RE-20387</td><td>24 Sep</td><td>15 Oct</td><td class="num">€86,750</td><td><span class="age a1">0–30 d</span></td></tr>
+                <tr><td><span class="co">Hansa Components</span></td><td>SK</td><td>RE-20455</td><td>12 Sep</td><td>16 Oct</td><td class="num">€41,220</td><td><span class="age a2">31–60 d</span></td></tr>
+                <tr><td><span class="co">Rheinert Service</span></td><td>DE</td><td>RE-20402</td><td>28 Sep</td><td>17 Oct</td><td class="num">€213,900</td><td><span class="age a1">0–30 d</span></td></tr>
+                <tr><td><span class="co">Brenner Werkzeug KG</span></td><td>SK</td><td>RE-20471</td><td>05 Aug</td><td>18 Oct</td><td class="num">€9,640</td><td><span class="age a3">61–90 d</span></td></tr>
+                <tr><td><span class="co">Weser Antriebstechnik</span></td><td>DE</td><td>RE-20299</td><td>18 Sep</td><td>19 Oct</td><td class="num">€54,310</td><td><span class="age a2">31–60 d</span></td></tr>
               </tbody>
             </table>
             <div class="runbar"><span>Aging exposure · <b>0–30 d</b> €3.1M · <b>31–60 d</b> €1.2M · <b class="disc" style="color:#dc2626">61–90 d</b> €0.52M</span>
@@ -378,10 +379,10 @@
                 <table class="tbl" style="margin-top:0">
                   <thead><tr><th>Vendor</th><th>Deadline</th><th style="text-align:right">Amount</th><th style="text-align:right">Save</th><th></th></tr></thead>
                   <tbody>
-                    <tr><td>Stahlbau Meyer AG</td><td><span class="age a3">2 days</span></td><td class="num">€86,750</td><td class="num disc">€2,602</td><td><span class="cbx on"></span></td></tr>
-                    <tr><td>Rheinmetall Service</td><td><span class="age a2">4 days</span></td><td class="num">€213,900</td><td class="num disc">€4,278</td><td><span class="cbx on"></span></td></tr>
-                    <tr><td>Nordwind Logistik</td><td><span class="age a2">5 days</span></td><td class="num">€128,400</td><td class="num disc">€2,568</td><td><span class="cbx on"></span></td></tr>
-                    <tr><td>Weser Antriebstechnik</td><td><span class="age a1">8 days</span></td><td class="num">€54,310</td><td class="num disc">€1,086</td><td><span class="cbx"></span></td></tr>
+                    <tr><td><span class="co">Stahlbau Meyer AG</span></td><td><span class="age a3">2 days</span></td><td class="num">€86,750</td><td class="num disc">€2,602</td><td><span class="cbx on"></span></td></tr>
+                    <tr><td><span class="co">Rheinert Service</span></td><td><span class="age a2">4 days</span></td><td class="num">€213,900</td><td class="num disc">€4,278</td><td><span class="cbx on"></span></td></tr>
+                    <tr><td><span class="co">Nordwind Logistik</span></td><td><span class="age a2">5 days</span></td><td class="num">€128,400</td><td class="num disc">€2,568</td><td><span class="cbx on"></span></td></tr>
+                    <tr><td><span class="co">Weser Antriebstechnik</span></td><td><span class="age a1">8 days</span></td><td class="num">€54,310</td><td class="num disc">€1,086</td><td><span class="cbx"></span></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -457,7 +458,7 @@
   </div>
 </section>
 
-<footer
+<footer>
   <div class="wrap">Anonymized case preview · part of Renaldo Recchiuti's vibe-coding portfolio · <a href="../index.html">back to overview</a></div>
 </footer>
 </body>

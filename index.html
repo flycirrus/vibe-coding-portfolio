@@ -140,9 +140,23 @@
   .card .desc { color: var(--text-dim); font-size: .92rem; margin: 0; flex: 1; }
   .tech { display: flex; flex-wrap: wrap; gap: 6px; }
   .tech span { font-size: .72rem; color: var(--text-faint); border: 1px solid var(--border); padding: 3px 9px; border-radius: 7px; background: var(--bg-soft); }
-  .card-foot { display: flex; align-items: center; gap: 12px; margin-top: 2px; }
-  .card-foot a { font-size: .86rem; font-weight: 600; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
-  .card-foot a:hover { text-decoration: underline; }
+  /* architecture / stack pills (shown near the top of each card) */
+  .arch { display: flex; flex-wrap: wrap; gap: 6px; margin: -2px 0 2px; }
+  .apill { font-size: .71rem; font-weight: 600; border-radius: 999px; padding: 4px 10px;
+    border: 1px solid var(--border); color: var(--text-dim); background: var(--bg-soft); white-space: nowrap; }
+  .apill.hi { color: var(--accent); background: var(--accent-soft);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+
+  .card-foot { display: flex; align-items: center; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
+  .card-foot .btn-app { flex: 1 1 auto; justify-content: center; text-decoration: none;
+    background: linear-gradient(100deg, var(--accent), #3b8ae6); color: #fff; border: 1px solid transparent;
+    border-radius: 11px; padding: 11px 16px; font-weight: 600; font-size: .92rem;
+    display: inline-flex; align-items: center; gap: 8px; transition: .18s; }
+  .card-foot .btn-app:hover { text-decoration: none; transform: translateY(-1px); box-shadow: 0 10px 24px -14px var(--accent); }
+  .card-foot .btn-app.alt { background: var(--card); color: var(--text); border-color: var(--border); box-shadow: none; }
+  .card-foot .btn-app.alt:hover { border-color: var(--accent); background: var(--card-hover); }
+  .card-foot .more { font-size: .84rem; font-weight: 600; color: var(--text-dim); text-decoration: none; white-space: nowrap; }
+  .card-foot .more:hover { color: var(--accent); }
   .card-foot .muted { font-size: .82rem; color: var(--text-faint); font-weight: 500; }
 
   /* Footer */
@@ -247,7 +261,11 @@
    PROJECT CATALOG  —  edit this list to add / remove / change projects.
    Fields:
      title, category, desc, tech[], status: live|public|private|dev,
-     link (optional { href, label })
+     arch[]       — short stack/architecture pills shown near the top (first one is highlighted;
+                    use it to state DB / data-core / web-app / deploy, e.g. "🗄 PostgreSQL · Prisma ORM")
+     img / icon, imgBadge (optional thumbnail badge),
+     appLink      — live app URL → big primary "Open the app" button (omit if not hosted)
+     previewLink  — case-preview page → small "Look more details" link
    Categories drive the filter chips automatically.
 --------------------------------------------------------------------------- */
 const PROJECTS = [
@@ -255,87 +273,100 @@ const PROJECTS = [
     title: "Empty-Leg Charter Portal",
     category: "Aviation & Ops",
     desc: "Full-stack private-jet empty-leg platform: public booking pages, inquiry flow and a complete admin area for flights, requests, users and pricing.",
+    arch: ["🗄 PostgreSQL · Prisma ORM", "🚀 Auto-deploy GitHub → Vercel"],
     tech: ["Next.js", "React", "Prisma", "TypeScript", "Tailwind"],
     status: "live",
     img: "assets/emptyleg.png",
-    link: { href: "https://emptylegportal.com", label: "Open app" }
+    appLink: "https://emptylegportal.com",
+    previewLink: "preview/emptyleg.html"
   },
   {
     title: "Payment Planning & Liquidity Dashboard",
     category: "Data & Business",
     desc: "Client project: a liquidity-management dashboard that imports SAP exports, plans payments by due date and early-payment discount, and runs a multi-role approval workflow with login.",
+    arch: ["🐍 Python data-analysis core · Pandas", "🔒 On-premise · SAP Excel import"],
     tech: ["Python", "Streamlit", "Pandas"],
     status: "private",
     img: "assets/payment-planning.png",
     imgBadge: "Anonymized preview",
-    link: { href: "preview/payment-planning.html", label: "Open case preview" }
+    previewLink: "preview/payment-planning.html"
   },
   {
     title: "A300-600 CBT Prep",
     category: "Pilot Training",
     desc: "Mobile study app for the A300-600 computer-based-training question bank, with per-question and per-chapter progress tracking and a weak-spot drill mode.",
+    arch: ["⚡ Static web app · local-storage progress", "🚀 GitHub → Vercel"],
     tech: ["HTML/CSS/JS", "No dependencies"],
     status: "live",
     img: "assets/cbt-prep.png",
-    link: { href: "https://a300-cbt-prep.vercel.app", label: "Open app" }
+    appLink: "https://a300-cbt-prep.vercel.app"
   },
   {
     title: "A300-600 Flow Trainer",
     category: "Pilot Training",
     desc: "Interactive procedure trainer: click the cockpit poster in the correct order and get instant yes/no feedback. Includes memory-item drills for red-alert recall.",
+    arch: ["⚡ Static web app · client-side only", "🚀 GitHub → Vercel"],
     tech: ["HTML/CSS/JS", "Static site"],
     status: "live",
-    img: "assets/flow-trainer.png",
-    link: { href: "https://a300-flow-trainer.vercel.app", label: "Open app" }
+    img: "assets/flow-trainer.jpg",
+    appLink: "https://a300-flow-trainer.vercel.app",
+    previewLink: "preview/flow-trainer.html"
   },
   {
     title: "FuelBeer — Fuel Companion",
     category: "Aviation & Ops",
     desc: "A pilot's fuel companion: fuel figures, a calculator and schedule helpers packaged into a clean mobile web app.",
+    arch: ["⚡ Web app · Next.js (no server DB)", "🚀 GitHub → Vercel"],
     tech: ["Next.js", "React", "TypeScript", "Tailwind"],
     status: "live",
     img: "assets/fuelbeer.png",
-    link: { href: "https://fuelbeer.vercel.app", label: "Open app" }
-  },
-  {
-    title: "FRA ⇄ LEJ Cockpit",
-    category: "Aviation & Ops",
-    desc: "Installable mobile PWA that compares three door-to-door commute options (rail, standby flight, cargo jumpseat) in real time, with a 'get home fast' emergency mode.",
-    tech: ["PWA", "HTML/CSS/JS", "Service Worker"],
-    status: "live",
-    img: "assets/cockpit.png",
-    link: { href: "https://fra-lej-cockpit.vercel.app", label: "Open app" }
-  },
-  {
-    title: "Flyxpert Live Feed",
-    category: "Aviation & Ops",
-    desc: "Standalone serverless API that pulls empty legs live from the ops system, computes charter pricing and serves a JSON feed embedded on a public partner website.",
-    tech: ["TypeScript", "Serverless API", "Vercel"],
-    status: "live",
-    icon: "📡",
-    link: { href: "https://flyxpert-feed.vercel.app", label: "Open feed" }
-  },
-  {
-    title: "MyIDTravel Integration",
-    category: "Aviation & Ops",
-    desc: "Backend automation that fetches empty legs via GraphQL, reformats them and pushes a CSV to an airline partner's SFTP every 15 minutes — fully unattended on a VM.",
-    tech: ["Python", "GraphQL", "SFTP", "Cron"],
-    status: "private",
-    icon: "🔄"
+    appLink: "https://fuelbeer.vercel.app",
+    previewLink: "preview/fuelbeer.html"
   },
   {
     title: "A300-600 Memory Items",
     category: "Pilot Training",
     desc: "Offline-ready flashcard trainer for the aircraft's memory items — a single self-contained page that flips, shuffles and works anywhere, phone included.",
+    arch: ["⚡ Single-file HTML · fully offline", "🚀 GitHub → Vercel"],
     tech: ["Single-file HTML", "Offline"],
     status: "live",
-    img: "assets/memory-items.png",
-    link: { href: "https://a300-memory-items.vercel.app", label: "Open app" }
+    img: "assets/memory-items.jpg",
+    appLink: "https://a300-memory-items.vercel.app"
+  },
+  {
+    title: "FRA ⇄ LEJ Cockpit",
+    category: "Aviation & Ops",
+    desc: "Installable mobile PWA that compares three door-to-door commute options (rail, standby flight, cargo jumpseat) in real time, with a 'get home fast' emergency mode.",
+    arch: ["📱 PWA · offline (Service Worker)", "🚀 GitHub → Vercel"],
+    tech: ["PWA", "HTML/CSS/JS", "Service Worker"],
+    status: "live",
+    img: "assets/cockpit.png",
+    appLink: "https://fra-lej-cockpit.vercel.app"
+  },
+  {
+    title: "Flyxpert Live Feed",
+    category: "Aviation & Ops",
+    desc: "Standalone serverless API that pulls empty legs live from the ops system, computes charter pricing and serves a JSON feed embedded on a public partner website.",
+    arch: ["🔌 Serverless API · live JSON feed", "🚀 Deployed on Vercel"],
+    tech: ["TypeScript", "Serverless API", "Vercel"],
+    status: "live",
+    icon: "📡",
+    appLink: "https://flyxpert-feed.vercel.app"
+  },
+  {
+    title: "MyIDTravel Integration",
+    category: "Aviation & Ops",
+    desc: "Backend automation that fetches empty legs via GraphQL, reformats them and pushes a CSV to an airline partner's SFTP every 15 minutes — fully unattended on a VM.",
+    arch: ["🐍 Python backend automation · GraphQL/SFTP", "⏱ Cron on a VM · unattended"],
+    tech: ["Python", "GraphQL", "SFTP", "Cron"],
+    status: "private",
+    icon: "🔄"
   },
   {
     title: "Personal Finance Dashboard",
     category: "Data & Business",
     desc: "Local-first personal-finance dashboard — balances, income/expenses, budgets and savings goals with interactive charts, built to a clean brand system.",
+    arch: ["⚡ Web app · local-first (no server DB)", "📊 React + Vite"],
     tech: ["React", "Vite", "Charts"],
     status: "private",
     icon: "💰"
@@ -344,6 +375,7 @@ const PROJECTS = [
     title: "Flight Logbook",
     category: "Data & Business",
     desc: "A digital pilot logbook that imports an existing Excel logbook into a proper database, with validation of flight hours and PIC time.",
+    arch: ["🗄 SQLite database · Prisma ORM", "📥 Excel import pipeline"],
     tech: ["Next.js", "Prisma", "SQLite", "TypeScript"],
     status: "dev",
     icon: "🛫"
@@ -352,9 +384,11 @@ const PROJECTS = [
     title: "Family Meal Planner",
     category: "Personal",
     desc: "Full-stack app for meal planning, recipes and shopping lists — an early experiment in orchestrating a multi-agent build from idea to working product.",
+    arch: ["🗄 Full-stack · Node/Express API + DB", "📊 React + Vite front end"],
     tech: ["React", "Vite", "Express", "Node"],
     status: "private",
-    icon: "🍽️"
+    icon: "🍽️",
+    previewLink: "preview/meal-planner.html"
   }
 ];
 
@@ -380,15 +414,23 @@ function render() {
     .filter(p => active === 'All' || p.category === active)
     .map(p => {
       const st = STATUS[p.status] || STATUS.private;
-      const foot = p.link
-        ? `<a href="${p.link.href}" target="_blank" rel="noopener">${p.link.label} ${extLink}</a>`
-        : `<span class="muted">${p.status === 'dev' ? 'In development' : 'Private / client work'}</span>`;
+      const thumbHref = p.appLink || p.previewLink;
+      let foot;
+      if (p.appLink) {
+        foot = `<a class="btn-app" href="${p.appLink}" target="_blank" rel="noopener">Open the app ${extLink}</a>`
+          + (p.previewLink ? `<a class="more" href="${p.previewLink}" target="_blank" rel="noopener">Look more details →</a>` : '');
+      } else if (p.previewLink) {
+        foot = `<a class="btn-app alt" href="${p.previewLink}" target="_blank" rel="noopener">Look more details ${extLink}</a>`;
+      } else {
+        foot = `<span class="muted">${p.status === 'dev' ? 'In development' : 'Private / client work'}</span>`;
+      }
       const badge = p.imgBadge ? `<span class="thumb-badge">${p.imgBadge}</span>` : '';
       const thumb = p.img
-        ? (p.link
-            ? `<a class="thumb" href="${p.link.href}" target="_blank" rel="noopener">${badge}<img src="${p.img}" loading="lazy" alt="${p.title} screenshot"></a>`
+        ? (thumbHref
+            ? `<a class="thumb" href="${thumbHref}" target="_blank" rel="noopener">${badge}<img src="${p.img}" loading="lazy" alt="${p.title} screenshot"></a>`
             : `<div class="thumb">${badge}<img src="${p.img}" loading="lazy" alt="${p.title} preview"></div>`)
         : `<div class="thumb thumb-icon">${p.icon || '🧩'}</div>`;
+      const arch = (p.arch || []).map((a, i) => `<span class="apill${i === 0 ? ' hi' : ''}">${a}</span>`).join('');
       return `
       <article class="card">
         ${thumb}
@@ -397,6 +439,7 @@ function render() {
           <span class="status-badge ${st.cls}">${st.label}</span>
         </div>
         <h3>${p.title}</h3>
+        ${arch ? `<div class="arch">${arch}</div>` : ''}
         <p class="desc">${p.desc}</p>
         <div class="tech">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
         <div class="card-foot">${foot}</div>

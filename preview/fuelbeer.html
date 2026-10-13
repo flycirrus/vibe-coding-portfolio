@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FuelBeer — Fuel Companion · Case Preview</title>
+<meta name="description" content="Case preview of a pilot's fuel companion: the fuel-calculation core and the mobile calculator UI with a full breakdown." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b1020; --panel:#141d36; --border:#243156; --text:#e8edf9; --dim:#9fb0d0; --faint:#6b7ca3;
+    --accent:#4ea3ff; --accent2:#7cf2d0; --soft:rgba(78,163,255,.14);
+    --a-bg:#f3f6fb; --a-panel:#fff; --a-ink:#17233d; --a-dim:#6b7a9c; --a-line:#e6ecf6;
+    --brand:#2563eb; --brand2:#0ea5a3; --green:#16a34a; --amber:#d97706;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(1100px 520px at 85% -10%,rgba(78,163,255,.15),transparent 60%);
+    background-attachment:fixed;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+  .back{display:inline-flex;align-items:center;gap:7px;font-size:.88rem;color:var(--dim);margin:22px 0 0}
+  .back:hover{color:var(--text)}
+  header.hd{padding:26px 0 8px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--accent2);background:var(--soft);border:1px solid var(--border);
+    padding:5px 11px;border-radius:999px}
+  header.hd h1{font-size:clamp(1.7rem,4vw,2.3rem);margin:16px 0 10px}
+  header.hd p{color:var(--dim);max-width:680px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .tag{font-size:.74rem;color:var(--faint);border:1px solid var(--border);padding:4px 10px;border-radius:7px;background:var(--panel)}
+  .note{margin-top:16px;font-size:.82rem;color:var(--faint);border-left:2px solid var(--accent);padding:4px 0 4px 12px}
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .lnk{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;border-radius:10px;padding:10px 16px;border:1px solid var(--border)}
+  .lnk.pri{background:linear-gradient(100deg,var(--accent),#3b8ae6);color:#fff;border-color:transparent}
+
+  section{padding:34px 0 6px}
+  .sec-label{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2)}
+  section h2{font-size:1.4rem;margin:6px 0 4px}
+  section > .wrap > p.lead{color:var(--dim);margin-bottom:22px;max-width:720px}
+
+  .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .step{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px 16px;position:relative}
+  .step .n{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--brand));
+    color:#fff;display:grid;place-items:center;font-weight:700;font-family:'Space Grotesk';font-size:.95rem;margin-bottom:12px}
+  .step h3{font-size:1rem;margin-bottom:6px}
+  .step p{font-size:.84rem;color:var(--dim)}
+  .step:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);
+    color:var(--accent);font-size:1.1rem;z-index:2}
+  .io{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+  .io .box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+  .io .box .k{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+  .io .box ul{margin:0;padding-left:16px;font-size:.86rem;color:var(--dim)}
+  .io .box li{margin:3px 0}
+
+  .screen{margin-top:8px;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 60px -30px #000}
+  .bar{display:flex;align-items:center;gap:7px;padding:9px 13px;background:#0e1628;border-bottom:1px solid var(--border)}
+  .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+  .bar .url{margin-left:10px;font-size:.74rem;color:var(--faint);background:#0b1220;border:1px solid var(--border);
+    padding:3px 12px;border-radius:7px}
+  .screen-body{background:var(--a-bg);padding:22px 16px;display:flex;justify-content:center}
+
+  /* phone frame */
+  .phone{width:340px;max-width:100%;background:#fff;color:var(--a-ink);border-radius:22px;overflow:hidden;
+    border:1px solid var(--a-line);box-shadow:0 24px 60px -34px rgba(20,40,90,.5)}
+  .ph-head{background:linear-gradient(135deg,#1d4ed8,#0ea5a3);color:#fff;padding:16px 18px 18px}
+  .ph-head .ap{font-family:'Space Grotesk';font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:8px}
+  .ph-head .leg{font-size:.78rem;opacity:.9;margin-top:3px}
+  .ph-body{padding:16px 16px 20px}
+  .fuel-hero{background:#0f1b33;color:#fff;border-radius:14px;padding:16px 18px;margin-bottom:14px}
+  .fuel-hero .lab{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:#9fb0d4}
+  .fuel-hero .big{font-size:2rem;font-weight:700;font-family:'Space Grotesk';line-height:1.1;margin-top:3px}
+  .fuel-hero .unit{font-size:.9rem;color:#9fb0d4;font-weight:500}
+  .fuel-hero .sub{font-size:.76rem;color:#8fe6cf;margin-top:4px}
+  .brk{list-style:none;padding:0;margin:0}
+  .brk li{display:flex;align-items:center;justify-content:space-between;padding:10px 2px;border-bottom:1px solid var(--a-line);font-size:.88rem}
+  .brk li:last-child{border-bottom:none}
+  .brk .nm{display:flex;align-items:center;gap:9px}
+  .brk .ic{width:26px;height:26px;border-radius:8px;background:#eef3fc;display:grid;place-items:center;font-size:.9rem}
+  .brk .vv{font-weight:700;font-variant-numeric:tabular-nums}
+  .brk .mut{font-size:.72rem;color:var(--a-dim);font-weight:500;display:block}
+  .brk li.total{border-top:2px solid #0f1b33;border-bottom:none;margin-top:4px;padding-top:12px;font-size:.96rem}
+  .brk li.total .vv{color:var(--brand)}
+  .mini-ctl{display:flex;gap:9px;margin:14px 0}
+  .segm{flex:1;text-align:center;font-size:.8rem;font-weight:600;padding:8px;border-radius:9px;border:1px solid var(--a-line);color:var(--a-dim)}
+  .segm.on{background:#eef3fc;border-color:#cdddf7;color:var(--brand)}
+
+  /* summary screen cards */
+  .sum-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .sumbox{background:var(--a-panel);border:1px solid var(--a-line);border-radius:12px;padding:13px 14px}
+  .sumbox .l{font-size:.68rem;color:var(--a-dim);text-transform:uppercase;letter-spacing:.04em}
+  .sumbox .v{font-size:1.3rem;font-weight:700;font-family:'Space Grotesk';margin-top:4px}
+  .sumbox .d{font-size:.72rem;color:var(--green);margin-top:2px}
+
+  footer{padding:40px 0 60px;color:var(--faint);font-size:.82rem;text-align:center}
+  @media(max-width:820px){
+    .pipe{grid-template-columns:1fr 1fr}
+    .step:not(:last-child)::after{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../index.html">← Back to portfolio</a>
+</div>
+
+<header class="hd">
+  <div class="wrap">
+    <span class="eyebrow">Live app · case preview</span>
+    <h1>FuelBeer — Fuel Companion</h1>
+    <p>A pilot's fuel companion in a clean mobile web app: enter the leg, and it computes the full fuel
+       breakdown — trip, contingency, alternate, final reserve and extra — into a single block-fuel figure,
+       with the whole calculation laid out so nothing is a black box.</p>
+    <div class="meta">
+      <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span>
+      <span class="tag">Tailwind</span><span class="tag">Mobile-first</span>
+    </div>
+    <div class="links">
+      <a class="lnk pri" href="https://fuelbeer.vercel.app" target="_blank" rel="noopener">Open app ↗</a>
+    </div>
+    <p class="note">Personal aviation tool. Figures below are illustrative placeholders, not an operational
+       flight-planning source.</p>
+  </div>
+</header>
+
+<!-- 1 · CORE -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">01 · Core function</div>
+    <h2>The fuel-calculation core</h2>
+    <p class="lead">Given the leg and a few parameters, the core assembles every regulatory fuel component
+       and sums them to a block-fuel figure — transparent and reproducible.</p>
+
+    <div class="pipe">
+      <div class="step"><div class="n">1</div><h3>Inputs</h3><p>Trip time, burn rate, alternate and the
+        reserve policy for the leg.</p></div>
+      <div class="step"><div class="n">2</div><h3>Components</h3><p>Compute trip, contingency, alternate,
+        final reserve, taxi and any extra fuel.</p></div>
+      <div class="step"><div class="n">3</div><h3>Sum</h3><p>Add to block fuel and show the full breakdown,
+        component by component.</p></div>
+      <div class="step"><div class="n">4</div><h3>Check</h3><p>Flag against tank capacity and highlight how
+        much margin is left.</p></div>
+    </div>
+
+    <div class="io">
+      <div class="box"><div class="k">Inputs</div>
+        <ul><li>Trip time &amp; fuel burn rate</li><li>Alternate &amp; holding requirement</li><li>Reserve / contingency policy</li></ul>
+      </div>
+      <div class="box"><div class="k">Outputs</div>
+        <ul><li>Full component breakdown</li><li>Block fuel figure</li><li>Tank-capacity margin check</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · CALCULATOR -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">02 · User interface</div>
+    <h2>Screen A — Fuel calculator &amp; breakdown</h2>
+    <p class="lead">The calculations overview: block fuel up top, then every component that makes it up —
+       so the figure is always explainable, not just a number.</p>
+
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">fuelbeer.vercel.app · calculator</span></div>
+      <div class="screen-body">
+        <div class="phone">
+          <div class="ph-head">
+            <div class="ap">⛽ FuelBeer</div>
+            <div class="leg">FRA → LIS · A300-600 · 02:55 trip</div>
+          </div>
+          <div class="ph-body">
+            <div class="fuel-hero">
+              <div class="lab">Block fuel</div>
+              <div class="big">18,400 <span class="unit">kg</span></div>
+              <div class="sub">✓ within tank capacity · 3,900 kg margin</div>
+            </div>
+            <div class="mini-ctl">
+              <span class="segm on">kg</span><span class="segm">lbs</span><span class="segm">US gal</span>
+            </div>
+            <ul class="brk">
+              <li><span class="nm"><span class="ic">🛫</span><span>Trip fuel<span class="mut">02:55 @ 4,900 kg/h</span></span></span><span class="vv">11,450 kg</span></li>
+              <li><span class="nm"><span class="ic">📉</span><span>Contingency<span class="mut">5 % of trip</span></span></span><span class="vv">573 kg</span></li>
+              <li><span class="nm"><span class="ic">🛬</span><span>Alternate<span class="mut">LIS → OPO</span></span></span><span class="vv">2,100 kg</span></li>
+              <li><span class="nm"><span class="ic">⏱</span><span>Final reserve<span class="mut">30 min holding</span></span></span><span class="vv">2,450 kg</span></li>
+              <li><span class="nm"><span class="ic">🅟</span><span>Taxi<span class="mut">out + in</span></span></span><span class="vv">400 kg</span></li>
+              <li><span class="nm"><span class="ic">➕</span><span>Extra<span class="mut">captain's discretion</span></span></span><span class="vv">1,427 kg</span></li>
+              <li class="total"><span class="nm"><span class="ic" style="background:#0f1b33;color:#fff">Σ</span><span>Block fuel</span></span><span class="vv">18,400 kg</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · SUMMARY -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">03 · User interface</div>
+    <h2>Screen B — Figures at a glance</h2>
+    <p class="lead">A compact summary of the key fuel figures for the leg — the numbers a pilot actually
+       reads back before pushback.</p>
+
+    <div class="screen">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">fuelbeer.vercel.app · summary</span></div>
+      <div class="screen-body">
+        <div class="phone">
+          <div class="ph-head">
+            <div class="ap">⛽ FuelBeer</div>
+            <div class="leg">FRA → LIS · summary</div>
+          </div>
+          <div class="ph-body">
+            <div class="sum-grid">
+              <div class="sumbox"><div class="l">Block fuel</div><div class="v">18,400 kg</div><div class="d">ready</div></div>
+              <div class="sumbox"><div class="l">Min. required</div><div class="v">16,973 kg</div><div class="d">legal minimum</div></div>
+              <div class="sumbox"><div class="l">Extra on board</div><div class="v">1,427 kg</div><div class="d">+ ~17 min</div></div>
+              <div class="sumbox"><div class="l">Tank margin</div><div class="v">3,900 kg</div><div class="d">within capacity</div></div>
+              <div class="sumbox"><div class="l">Est. ZFW room</div><div class="v">OK</div><div class="d">no limit hit</div></div>
+              <div class="sumbox"><div class="l">Endurance</div><div class="v">03:54</div><div class="d">at block fuel</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Case preview · part of Renaldo Recchiuti's vibe-coding portfolio ·
+    <a href="https://fuelbeer.vercel.app" target="_blank" rel="noopener">open the live app</a> ·
+    <a href="../index.html">back to overview</a></div>
+</footer>
+</body>
+</html>
