@@ -157,6 +157,10 @@
     .ck-row{grid-template-columns:1fr}
   }
 </style>
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -336,14 +340,12 @@
     <a href="https://a300-flow-trainer.vercel.app" target="_blank" rel="noopener">open the live app</a> ·
     <a href="../index.html">back to overview</a></div>
 </footer>
-<!-- Vercel Web Analytics (anonymous page views + click events on live-app links). -->
+<!-- Custom analytics event tracking for app links -->
 <script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="http"]');
     if (a) { try { window.va('event', { name: 'open_app_from_preview', project: document.title.replace(/\s*[—·].*$/, '').trim(), href: a.href }); } catch (err) {} }
   });
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
