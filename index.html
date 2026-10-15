@@ -155,6 +155,8 @@
   .card-foot .btn-app:hover { text-decoration: none; transform: translateY(-1px); box-shadow: 0 10px 24px -14px var(--accent); }
   .card-foot .btn-app.alt { background: var(--card); color: var(--text); border-color: var(--border); box-shadow: none; }
   .card-foot .btn-app.alt:hover { border-color: var(--accent); background: var(--card-hover); }
+  .btn-app .rocket { font-size: 1.05em; line-height: 1; transition: transform .25s ease; }
+  .card:hover .btn-app .rocket { transform: translateY(-2px) rotate(12deg); }
   .card-foot .more { align-self: center; font-size: .84rem; font-weight: 600; color: var(--text-dim);
     text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; }
   .card-foot .more:hover { color: var(--accent); }
@@ -261,19 +263,20 @@
      arch[]       — short stack/architecture pills shown near the top (first one is highlighted;
                     use it to state DB / data-core / web-app / deploy, e.g. "🗄 PostgreSQL · Prisma ORM")
      img / icon, imgBadge (optional thumbnail badge),
-     appLink      — live app URL → big primary "Open the app" button (omit if not hosted)
-     previewLink  — case-preview page → small "Look more details" link
+     appLink      — live app URL → big primary "Launch the app 🚀" button (omit if not hosted)
+     previewLink  — case-preview page → small "ⓘ Details" link
    Categories drive the filter chips automatically.
 --------------------------------------------------------------------------- */
 const PROJECTS = [
   {
-    title: "Empty-Leg Charter Portal",
+    title: "Private Jet Flights · Live Tool",
     category: "Aviation & Ops",
     desc: "Full-stack private-jet empty-leg platform: public booking pages, inquiry flow and a complete admin area for flights, requests, users and pricing.",
     arch: ["🗄 PostgreSQL · Prisma ORM", "🚀 Auto-deploy GitHub → Vercel"],
     tech: ["Next.js", "React", "Prisma", "TypeScript", "Tailwind"],
     status: "live",
-    img: "assets/emptyleg.png",
+    img: "assets/emptyleg.gif",
+    imgBadge: "Portal",
     appLink: "https://emptylegportal.com",
     previewLink: "preview/emptyleg.html"
   },
@@ -400,6 +403,7 @@ const STATUS = {
 };
 
 const extLink = `<svg class="svg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>`;
+const infoIcon = `<svg class="svg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.6" r="1" fill="currentColor" stroke="none"/></svg>`;
 
 const grid = document.getElementById('grid');
 const filtersEl = document.getElementById('filters');
@@ -417,10 +421,10 @@ function render() {
       const thumbHref = p.appLink || p.previewLink;
       let foot;
       if (p.appLink) {
-        foot = `<a class="btn-app" href="${p.appLink}" target="_blank" rel="noopener">Open the app ${extLink}</a>`
-          + (p.previewLink ? `<a class="more" href="${p.previewLink}" target="_blank" rel="noopener">Look more details →</a>` : '');
+        foot = `<a class="btn-app" href="${p.appLink}" target="_blank" rel="noopener">Launch the app <span class="rocket">🚀</span></a>`
+          + (p.previewLink ? `<a class="more" href="${p.previewLink}" target="_blank" rel="noopener">${infoIcon} Details</a>` : '');
       } else if (p.previewLink) {
-        foot = `<a class="btn-app alt" href="${p.previewLink}" target="_blank" rel="noopener">Look more details ${extLink}</a>`;
+        foot = `<a class="btn-app alt" href="${p.previewLink}" target="_blank" rel="noopener">${infoIcon} Details</a>`;
       } else {
         foot = `<span class="muted">${p.status === 'dev' ? 'In development' : 'Private / client work'}</span>`;
       }
