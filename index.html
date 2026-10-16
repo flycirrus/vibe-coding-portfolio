@@ -193,7 +193,13 @@
        (the hero/intro is an oversized snap area -> free to scroll within, snaps only at edges) */
     .hero { scroll-snap-align: start; scroll-margin-top: 62px; }
     .sec-head { scroll-snap-align: start; scroll-margin-top: 70px; }
-    .card { scroll-snap-align: start; scroll-margin-top: 70px; padding: 18px; gap: 12px; }
+    .card {
+      scroll-snap-align: start; scroll-margin-top: 70px; padding: 18px; gap: 12px;
+      min-height: calc(100vh - 78px);        /* fill the screen so only one card is visible */
+      min-height: calc(100dvh - 78px);       /* dynamic viewport (accounts for browser chrome) */
+      justify-content: flex-start;           /* content at the top; dark card fills the rest */
+    }
+    .card .desc { flex: 0 0 auto; }
     .thumb { height: 172px; }
     .card h3 { font-size: 1.22rem; line-height: 1.25; }
     .card .desc { font-size: .95rem; line-height: 1.55; }
