@@ -116,6 +116,7 @@
     padding: 22px; display: flex; flex-direction: column; gap: 13px;
     transition: .2s; position: relative; overflow: hidden;
   }
+  .card-inner { display: contents; }   /* transparent on desktop — children flow as the card's own */
   .card::before { content:""; position:absolute; inset:0 0 auto 0; height:3px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); opacity:0; transition:.2s; }
   .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); background: var(--card-hover); }
   .card:hover::before { opacity: 1; }
@@ -193,11 +194,20 @@
        (the hero/intro is an oversized snap area -> free to scroll within, snaps only at edges) */
     .hero { scroll-snap-align: start; scroll-margin-top: 62px; }
     .sec-head { scroll-snap-align: start; scroll-margin-top: 70px; }
+    /* The card becomes a transparent, full-screen SLOT (so exactly one card shows per screen),
+       and the visible bordered box moves to .card-inner, which hugs its content. */
     .card {
-      scroll-snap-align: start; scroll-margin-top: 70px; padding: 18px; gap: 12px;
-      min-height: calc(100vh - 78px);        /* fill the screen so only one card is visible */
-      min-height: calc(100dvh - 78px);       /* dynamic viewport (accounts for browser chrome) */
-      justify-content: center;               /* center the content so the fill looks balanced */
+      scroll-snap-align: start; scroll-margin-top: 70px;
+      min-height: calc(100vh - 78px);
+      min-height: calc(100dvh - 78px);
+      padding: 0; border: none; background: none; overflow: visible;
+      justify-content: center;               /* column flex -> vertically center the content box */
+    }
+    .card::before { content: none; }         /* no gradient line on the transparent slot */
+    .card-inner {
+      display: flex; flex-direction: column; gap: 12px; width: 100%;
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 18px; overflow: hidden;       /* the box hugs the content */
     }
     .card .desc { flex: 0 0 auto; }
     .thumb { height: 172px; }
@@ -474,7 +484,7 @@ function render() {
         : `<div class="thumb thumb-icon">${p.icon || '🧩'}</div>`;
       const arch = (p.arch || []).map((a, i) => `<span class="apill${i === 0 ? ' hi' : ''}">${a}</span>`).join('');
       return `
-      <article class="card">
+      <article class="card"><div class="card-inner">
         ${thumb}
         <div class="card-top">
           <span class="cat-tag">${p.category}</span>
@@ -485,7 +495,7 @@ function render() {
         <p class="desc">${p.desc}</p>
         <div class="tech">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
         <div class="card-foot">${foot}</div>
-      </article>`;
+      </div></article>`;
     }).join('');
 }
 
