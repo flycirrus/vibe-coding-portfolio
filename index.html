@@ -181,10 +181,29 @@
     .top-actions .hide-sm { display: none; }
     .cta-row .btn { flex: 1 1 auto; justify-content: center; }
 
-    /* Mobile: clean card scrolling with snap, and no stuck tap-hover */
-    html { scroll-snap-type: y proximity; }
-    .grid { gap: 16px; }
-    .card { scroll-snap-align: start; scroll-margin-top: 74px; }
+    /* Mobile: horizontal swipe deck — equal-size cards, one per screen, snaps cleanly */
+    .grid {
+      display: flex; flex-wrap: nowrap; align-items: stretch;
+      overflow-x: auto; overflow-y: visible;
+      scroll-snap-type: x mandatory;
+      gap: 14px;
+      margin-inline: -22px;              /* bleed past .wrap padding to screen edges */
+      padding: 4px 22px 10px;
+      scroll-padding-inline: 22px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .grid::-webkit-scrollbar { display: none; }
+    .card {
+      flex: 0 0 86vw;                    /* one card per screen (small peek of the next) */
+      scroll-snap-align: center;
+      scroll-snap-stop: always;          /* one swipe = one card */
+    }
+    .card .desc {
+      display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .thumb { height: 150px; }
+    /* no stuck tap-hover on touch */
     .card:hover { transform: none; border-color: var(--border); box-shadow: none; background: var(--card); }
     .card:hover::before { opacity: 0; }
     .card:hover .thumb img { transform: none; }
