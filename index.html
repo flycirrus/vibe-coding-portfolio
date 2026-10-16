@@ -180,6 +180,15 @@
     .hero { padding-top: 44px; padding-bottom: 20px; }
     .top-actions .hide-sm { display: none; }
     .cta-row .btn { flex: 1 1 auto; justify-content: center; }
+
+    /* Mobile: clean card scrolling with snap, and no stuck tap-hover */
+    html { scroll-snap-type: y proximity; }
+    .grid { gap: 16px; }
+    .card { scroll-snap-align: start; scroll-margin-top: 74px; }
+    .card:hover { transform: none; border-color: var(--border); box-shadow: none; background: var(--card); }
+    .card:hover::before { opacity: 0; }
+    .card:hover .thumb img { transform: none; }
+    .card:hover .btn-app .rocket { transform: none; }
   }
   @media (max-width: 400px) {
     .hero h1 br { display: none; }
