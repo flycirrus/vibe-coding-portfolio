@@ -185,9 +185,14 @@
     section.projects { padding-top: 34px; }
     .sec-head { margin-bottom: 18px; }
     .grid { grid-template-columns: 1fr; gap: 16px; }   /* pure vertical stack, no horizontal scroll */
-    /* vertical card-to-card snap: settles on a card, never rests half-between two.
-       'proximity' (not mandatory) so tall cards that exceed the screen can still be scrolled through. */
-    html { scroll-snap-type: y proximity; }
+    /* vertical card-to-card snap: always settles on a card, never rests half-between two.
+       'mandatory' forces a snap; cards taller than the screen stay freely scrollable because an
+       oversized snap area makes its whole range a valid snap position (CSS scroll-snap spec). */
+    html { scroll-snap-type: y mandatory; }
+    /* snap points across the top too, so mandatory never yanks you out of the intro
+       (the hero/intro is an oversized snap area -> free to scroll within, snaps only at edges) */
+    .hero { scroll-snap-align: start; scroll-margin-top: 62px; }
+    .sec-head { scroll-snap-align: start; scroll-margin-top: 70px; }
     .card { scroll-snap-align: start; scroll-margin-top: 70px; padding: 18px; gap: 12px; }
     .thumb { height: 172px; }
     .card h3 { font-size: 1.22rem; line-height: 1.25; }
