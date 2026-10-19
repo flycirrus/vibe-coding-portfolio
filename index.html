@@ -228,6 +228,16 @@
     .foot-links { width: 100%; }
     .foot-links .btn { flex: 1 1 auto; justify-content: center; }
   }
+  /* Desktop (≥761px): gentle MAGNETIC row-snapping. Each card row shares the same top, so
+     snapping a card to start snaps the whole row to just below the sticky header.
+     'proximity' only pulls when you rest near a snap point — so it never traps you and you can
+     always scroll on to the footer (which is itself the clean final stop). */
+  @media (min-width: 761px) {
+    html { scroll-snap-type: y proximity; }
+    .sec-head { scroll-snap-align: start; scroll-margin-top: 72px; }
+    .card { scroll-snap-align: start; scroll-margin-top: 72px; }
+    footer { scroll-snap-align: start; scroll-margin-top: 72px; }
+  }
 </style>
 </head>
 <body>
@@ -502,6 +512,14 @@ filtersEl.addEventListener('click', e => {
   active = btn.dataset.cat;
   filtersEl.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.cat === active));
   render();
+  /* Desktop: on filter click, scroll down so "Selected work" + the first row of cards sit at the top. */
+  if (window.matchMedia('(min-width: 761px)').matches) {
+    const head = document.querySelector('.sec-head');
+    if (head) {
+      const y = head.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
 });
 render();
 
