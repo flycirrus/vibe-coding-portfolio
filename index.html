@@ -179,9 +179,12 @@
   @media (max-width: 760px) {
     .wrap { padding: 0 22px; }
     .stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .stat { padding: 15px 16px; }
-    .stat .num { font-size: 1.6rem; }
-    .hero { padding-top: 34px; padding-bottom: 20px; }
+    .stat { padding: 13px 15px; }
+    .stat .num { font-size: 1.5rem; }
+    .hero { padding-top: 30px; padding-bottom: 18px; }
+    /* tighter vertical rhythm so both stat rows sit higher in the first view */
+    .hero h1 { margin-bottom: 14px; }
+    .cta-row { margin-bottom: 24px; }
     .top-actions .hide-sm { display: none; }
     .cta-row .btn { flex: 1 1 auto; justify-content: center; }
 
@@ -209,7 +212,7 @@
     .card .desc { font-size: .93rem; line-height: 1.5; }
     .tech span { font-size: .75rem; padding: 4px 10px; }
     .apill { font-size: .74rem; padding: 5px 11px; }
-    .hero p.lead { line-height: 1.6; }
+    .hero p.lead { line-height: 1.5; margin-bottom: 20px; }
 
     /* touch: bigger, comfortable tap targets */
     .chip { padding: 11px 16px; font-size: .88rem; min-height: 42px; display: inline-flex; align-items: center; }
