@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="assets/logo-64.png" />
+<link rel="apple-touch-icon" href="assets/logo-64.png" />
 <title>Renaldo Recchiuti — Vibe Coding Portfolio</title>
 <meta name="description" content="Real software shipped with AI-assisted 'vibe coding' — for aviation, operations, training and business. A catalog of shipped web apps." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,7 +56,8 @@
     border-bottom: 1px solid var(--border);
   }
   .top-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; }
-  .brand { font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
+  .brand { font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 9px; }
+  .brand .logo { height: 26px; width: auto; display: block; flex: none; }
   .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 4px var(--accent-soft); }
   .top-actions { display: flex; align-items: center; gap: 8px; }
   .icon-btn, .ghost-link {
@@ -231,7 +234,7 @@
 
 <header class="top">
   <div class="wrap top-inner">
-    <div class="brand"><span class="dot"></span> renaldo.ai</div>
+    <div class="brand"><img class="logo" src="assets/logo.png" alt="renaldo.ai logo" /> renaldo.ai</div>
     <div class="top-actions">
       <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle light / dark">
         <span id="themeIcon">☀</span>
