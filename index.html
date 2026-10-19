@@ -526,6 +526,22 @@ filtersEl.addEventListener('click', e => {
 });
 render();
 
+/* In-page anchors (e.g. "Browse the work" -> #work): smooth-scroll to the section's
+   "Selected work" heading at its exact snap position, so mobile's mandatory scroll-snap
+   doesn't yank the page back after the jump. */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const target = id && document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    const head = target.querySelector('.sec-head') || target;
+    const offset = window.matchMedia('(min-width: 761px)').matches ? 72 : 70;
+    const y = head.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  });
+});
+
 /* Click analytics — track which project gets opened (app) or expanded (details).
    Uses Vercel Web Analytics custom events (anonymous, no IPs). No-op until Analytics is enabled. */
 grid.addEventListener('click', e => {
