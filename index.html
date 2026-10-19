@@ -57,7 +57,7 @@
   }
   .top-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; }
   .brand { font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 9px; }
-  .brand .logo { height: 26px; width: auto; display: block; flex: none; }
+  .brand .logo { height: 30px; width: auto; display: block; flex: none; }
   .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 4px var(--accent-soft); }
   .top-actions { display: flex; align-items: center; gap: 8px; }
   .icon-btn, .ghost-link {
@@ -69,7 +69,7 @@
   .icon-btn:hover, .ghost-link:hover { border-color: var(--accent); color: var(--text); background: var(--card-hover); }
 
   /* Hero */
-  .hero { padding-top: 68px; padding-bottom: 30px; }
+  .hero { padding-top: 52px; padding-bottom: 30px; }
   .eyebrow {
     display: inline-flex; align-items: center; gap: 8px; font-size: .78rem; font-weight: 600;
     letter-spacing: .08em; text-transform: uppercase; color: var(--accent-2);
@@ -81,6 +81,10 @@
     background: linear-gradient(100deg, var(--accent), var(--accent-2));
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
+  /* Personal signature — subtle name + role under the headline (reuses existing type tokens) */
+  .byline { margin: -4px 0 20px; display: flex; flex-direction: column; gap: 3px; }
+  .byline .byname { font-family: 'Space Grotesk'; font-weight: 600; font-size: 1.12rem; color: var(--text); letter-spacing: .01em; }
+  .byline .byrole { font-size: .74rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--accent-2); }
   .hero p.lead { font-size: clamp(1.02rem, 2.2vw, 1.22rem); color: var(--text-dim); max-width: 660px; margin: 0 0 26px; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
   .btn {
@@ -181,7 +185,9 @@
     .stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .stat { padding: 15px 16px; }
     .stat .num { font-size: 1.6rem; }
-    .hero { padding-top: 44px; padding-bottom: 20px; }
+    .hero { padding-top: 34px; padding-bottom: 20px; }
+    .byline .byname { font-size: 1.05rem; }
+    .byline .byrole { font-size: .7rem; letter-spacing: .07em; }
     .top-actions .hide-sm { display: none; }
     .cta-row .btn { flex: 1 1 auto; justify-content: center; }
 
@@ -257,6 +263,10 @@
   <section class="hero wrap">
     <span class="eyebrow">✦ Vibe coding · shipped software</span>
     <h1>I build real software with <br><span class="grad">AI-assisted vibe coding.</span></h1>
+    <div class="byline">
+      <span class="byname">Renaldo Recchiuti</span>
+      <span class="byrole">Engineer · Airline Pilot · AI Builder</span>
+    </div>
     <p class="lead">
       I'm Renaldo — a production engineer and airline pilot. I build real apps with a focus on the
       backend and process design: the data models, workflows and logic that make them run. This past
