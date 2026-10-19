@@ -194,16 +194,16 @@
        (the hero/intro is an oversized snap area -> free to scroll within, snaps only at edges) */
     .hero { scroll-snap-align: start; scroll-margin-top: 62px; }
     .sec-head { scroll-snap-align: start; scroll-margin-top: 70px; }
-    /* Compact magnetic deck: natural-height cards (border hugs content) that snap CENTERED.
-       Small peeks of the neighbouring cards are fine. The last card snaps to the END instead,
-       so its bottom is always fully visible. */
-    .card { scroll-snap-align: center; padding: 18px; gap: 12px; }
+    /* Compact magnetic deck: natural-height cards (border hugs content) that snap to the TOP,
+       just below the sticky header — so each card's top edge is never clipped and the whole card
+       (top to bottom) is visible once it settles. */
+    .card { scroll-snap-align: start; scroll-margin-top: 72px; padding: 16px; gap: 11px; }
     /* no magnet trap at the end: the footer ("Let's build something") is the final snap stop,
        so you can always scroll past the last card and read it. */
     footer { scroll-snap-align: start; scroll-margin-top: 66px; }
-    .thumb { height: 172px; }
-    .card h3 { font-size: 1.22rem; line-height: 1.25; }
-    .card .desc { font-size: .95rem; line-height: 1.55; }
+    .thumb { height: 148px; }
+    .card h3 { font-size: 1.2rem; line-height: 1.22; }
+    .card .desc { font-size: .93rem; line-height: 1.5; }
     .tech span { font-size: .75rem; padding: 4px 10px; }
     .apill { font-size: .74rem; padding: 5px 11px; }
     .hero p.lead { line-height: 1.6; }
@@ -231,7 +231,7 @@
 
 <header class="top">
   <div class="wrap top-inner">
-    <div class="brand"><span class="dot"></span> Renaldo Recchiuti</div>
+    <div class="brand"><span class="dot"></span> renaldo.ai</div>
     <div class="top-actions">
       <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle light / dark">
         <span id="themeIcon">☀</span>
